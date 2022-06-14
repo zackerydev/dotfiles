@@ -1,0 +1,16 @@
+.cache
+.profile
+.sommelierrc
+.zcompdump*
+.zprofile
+.zsh_history
+.zshrc.*
+!.*
+
+.config/k9s/config.yml
+.config/nvim/.github
+.config/nvim/plugin/packer_compiled.lua
+credentials
+.aws
+.kube
+
