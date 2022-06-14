@@ -29,7 +29,6 @@ else
   ln -sf $dir/.config $HOME/.config
   ln -sf $dir/.tmux.conf $HOME/.tmux.conf
   ln -sf $dir/.zshrc $HOME/.zshrc
-  ln -sf $dir/.gnupg $HOME/.gnupg
   ln -sf $dir/.asdfrc $HOME/.asdfrc
   ln -sf $dir/.tmux $HOME/.tmux
 
