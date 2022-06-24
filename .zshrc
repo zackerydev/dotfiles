@@ -13,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export GPG_TTY=$(tty)
 
-alias helm2="/usr/local/opt/helm@2/bin/helm"
+alias helm2="/opt/homebrew/opt/helm@2/bin/helm"
 
 # Detect Dark Mode
 if [[ -z "${CODESPACES}" ]]; then
@@ -47,3 +47,4 @@ alias wt="git worktree"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+

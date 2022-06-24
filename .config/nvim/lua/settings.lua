@@ -2,6 +2,7 @@ vim.opt.clipboard = 'unnamedplus' -- clipboard sync
 vim.opt.number = true             -- numbers
 vim.opt.signcolumn = 'yes'        -- sign column
 vim.opt.expandtab = true
+vim.opt.cmdheight = 0
 
 -- Status Line Stuff
 vim.opt.winbar = '%m %f'
