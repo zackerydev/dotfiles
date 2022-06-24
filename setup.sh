@@ -28,12 +28,14 @@ else
   ln -sf $dir/.zshrc $HOME/.zshrc
   ln -sf $dir/.asdfrc $HOME/.asdfrc
   ln -sf $dir/.tmux $HOME/.tmux
+  ln -sf $dir/.bash_profile $HOME/.bash_profile
 
   echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zshrc
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  source $HOME/.zshrc
-
   echo "Symlinks complete, running default setup!"
+
+  git config --global user.email "zgriesinger@gmail.com"
+  git config --global user.name "Zackery Griesinger"
 fi
 
 # Load the Brewfile
