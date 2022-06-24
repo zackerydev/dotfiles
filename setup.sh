@@ -1,16 +1,15 @@
 # The first thing we need is Brew!
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "Setting up Dotfiles"
+dir=$(pwd)
 
-# Load the Brewfile
-brew bundle --file $HOME/.brew/Brewfile
-
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # When on Linux install some stuff that's typically cask'ed
 # curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # OMZ Reinstall we don't care
 rm -rf ~/.oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" "--unattended"
 
 # Oh My ZSH plugins
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf 2> /dev/null 
@@ -19,10 +18,8 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf 2> /dev/null
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim 2> /dev/null
 
-echo "Setting up Dotfiles"
-dir=$(pwd)
 
-if [[ -z "${CODESPACES}" ]]; then
+if [ -z "${CODESPACES}" ]; then
   echo "Detected non CodeSpaces env, skipping..."
 else
   echo "Detected CodeSpaces, running symlinks"
@@ -32,13 +29,12 @@ else
   ln -sf $dir/.asdfrc $HOME/.asdfrc
   ln -sf $dir/.tmux $HOME/.tmux
 
-  # Change Default Shell to ZSH
-  # chsh -s $(which zsh)
+  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zshrc
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  source $HOME/.zshrc
 
   echo "Symlinks complete, running default setup!"
 fi
 
-
-# GitHub Completion
-gh completion -s zsh > /usr/local/share/zsh/site-functions/_gh
-
+# Load the Brewfile
+brew bundle --file $dir/.brew/Brewfile

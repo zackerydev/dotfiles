@@ -1,0 +1,13 @@
+brew "git"
+brew "neovim", args: ["HEAD"]
+brew "asdf"
+brew "hugo"
+brew "tig"
+brew "zsh"
+brew "tmux"
+brew "asdf"
+brew "kubectl"
+
+cask "obsidian"
+cask "visual-studio-code"
+cask "kitty"
