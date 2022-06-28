@@ -7,6 +7,7 @@ brew "zsh"
 brew "tmux"
 brew "asdf"
 brew "kubectl"
+brew "ripgrep"
 
 cask "obsidian"
 cask "visual-studio-code"
