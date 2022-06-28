@@ -16,8 +16,6 @@ alias helm2="/opt/homebrew/opt/helm@2/bin/helm"
 
 # Detect Dark Mode
 if [[ -z "${CODESPACES}" ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  export TERM="xterm-256color"
   if defaults read -g AppleInterfaceStyle &>/dev/null; then
     kitty +kitten themes --reload-in=all Github-default-dark
     export THEME="DARK"
@@ -25,6 +23,9 @@ if [[ -z "${CODESPACES}" ]]; then
     kitty +kitten themes --reload-in=all Github-light-default
     export THEME="LIGHT"
   fi
+else 
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  export TERM="xterm-256color"
 fi
 
 # Completion for GH
@@ -48,4 +49,5 @@ alias wt="git worktree"
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 
