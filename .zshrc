@@ -3,7 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="simple"
 
 plugins=(git asdf aws)
@@ -17,6 +16,7 @@ alias helm2="/opt/homebrew/opt/helm@2/bin/helm"
 
 # Detect Dark Mode
 if [[ -z "${CODESPACES}" ]]; then
+  export TERM="xterm-256color"
   if defaults read -g AppleInterfaceStyle &>/dev/null; then
     kitty +kitten themes --reload-in=all Github-default-dark
     export THEME="DARK"
