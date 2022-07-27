@@ -1,0 +1,14 @@
+-- require('bufferline').setup {
+--	#   options = {
+--		#    mode = "buffers",
+--		#    numbers = "none",
+--		#    close_command = "bdelete! %d",
+--		#    right_mouse_command = "bdelete! %d",
+--		#    left_mouse_command = "buffer %d",
+--		#    middle_mouse_command = "bdelete! %d",
+--		#   offsets= {{
+--			#    filetype = "NvimTree",
+--			#     text = " Files"
+--			#   }}
+--			# }
+--			#}

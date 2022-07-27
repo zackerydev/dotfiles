@@ -24,6 +24,7 @@ map("n", "<S-Tab>", ":bprevious<CR>")
 map("n", "<leader>ff", ":Telescope find_files<cr>")
 map("n", "<leader>fw", ":Telescope live_grep<cr>")
 map("n", "<leader>fb", ":Telescope buffers<cr>")
+map("n", "<leader>ll", ":Telescope buffers<cr>")
 map("n", "<leader>fh", ":Telescope help_tags<cr>")
 map("n", "<leader>fr", ":Telescope resume<cr>")
 
@@ -37,5 +38,13 @@ map("n", "<leader>pc", ":PackerCompile<CR>")
 -- Terminal
 map("t", "<ESC>", "<C-\\><C-n>")
 map("t", "<C-[>", "<C-\\><C-n>")
+
+-- fuGITive
+map("n", "<leader>gp", ":G push<cr>")
+map("n", "<leader>gs", ":G status<cr>")
+map("n", "<leader>gd", ":G diff<cr>")
+map("n", "<leader>gpf", ":G push -f<cr>")
+map("n", "<leader>gc", ":G commit<cr>")
+map("n", "<leader>gca", ":G commit -a --amend<cr>")
 
 

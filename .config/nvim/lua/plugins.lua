@@ -1,3 +1,4 @@
+
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -17,23 +18,31 @@ return require('packer').startup(function()
   --   end,
   -- }
   --
-  -- are all comments highlihgted
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function ()
-      require('lualine').setup({
-	      options = {
-        	theme = "auto",
+    "nvim-lualine/lualine.nvim",
+    after = "github-nvim-theme",
+    config = function()
+      require("lualine").setup {
+        options = {
+          theme = "auto", -- or you can assign github_* themes individually.
           globalstatus = true,
-          disabled_filetypes =  {'NvimTree', 'help', 'terminal'}
-	      }
-      })
-    end,
-    after = 'github-nvim-theme'
+          component_separators = { right = '', left = '' } ,
+          section_separators = { left = '', right = ''},
+          -- ... your lualine config
+        },
+          tabline = {
+            lualine_a = {'mode'},
+            lualine_c = {'buffers'},
+            lualine_x = {'diagnostics', 'fileformat', 'filetype'},
+            lualine_y = {},
+            lualine_z = {'tabs'}
+          },
+          sections = {},
+          inactive_sections = {},
+      }
+    end
   }
   use 'folke/tokyonight.nvim'
-  use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
   -- use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
   use {
     'nvim-telescope/telescope.nvim',

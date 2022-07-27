@@ -50,4 +50,11 @@ alias wt="git worktree"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-
+export PATH="/Users/zack.griesinger/Library/Caches/fnm_multishells/68419_1658349880653/bin":$PATH
+export FNM_MULTISHELL_PATH="/Users/zack.griesinger/Library/Caches/fnm_multishells/68419_1658349880653"
+export FNM_VERSION_FILE_STRATEGY="local"
+export FNM_DIR="/Users/zack.griesinger/Library/Application Support/fnm"
+export FNM_LOGLEVEL="info"
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_ARCH="arm64"
+rehash
