@@ -47,7 +47,6 @@ compinit -i
 # Config
 
 export XDG_CONFIG_HOME=~/.config
-export PATH="$(pyenv root)/shims:$PATH"
 export NODE_ENV=development
 export APOLLO_TELEMETRY_DISABLED=1
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
