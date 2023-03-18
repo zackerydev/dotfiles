@@ -57,6 +57,7 @@ alias sz="source ~/.zshrc"
 alias gs="git status"
 alias k="kubectl"
 alias p="pnpm"
+alias n="npm"
 alias gpf="git commit -a --amend && git push -f"
 alias dev="~/GitHub"
 alias mono="~/GitHub/c2fo/mono"
@@ -71,16 +72,14 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/zack.griesinger/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 # pnpm
 export PNPM_HOME="/Users/zack.griesinger/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+export PATH=$PATH:$(go env GOPATH)/bin
 
 export AWS_SESSION_TOKEN_TTL=4h
 export AWS_CHAINED_SESSION_TOKEN_TTL=4h
 export AWS_ASSUME_ROLE_TTL=4h
 export AWS_FEDERATION_TOKEN_TT=4h
-# pnpm end

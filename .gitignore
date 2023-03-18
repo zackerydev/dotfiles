@@ -4,6 +4,7 @@
 .zcompdump*
 .zprofile
 .zsh_history
+.bash_profile
 .zshrc.*
 !.*
 

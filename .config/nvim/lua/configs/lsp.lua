@@ -1,11 +1,8 @@
 require("mason").setup()
 require("mason-lspconfig").setup {
    ensure_installed = {
-      "denols",
       "jsonls",
       "rust_analyzer",
-      "remark_ls",
-      "sumneko_lua",
       "tailwindcss",
       "tsserver",
       "yamlls",
@@ -58,35 +55,40 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
    border = "single",
 })
 
-require("lspconfig")["sumneko_lua"].setup {
-   on_attach = on_attach,
-   settings = {
-      Lua = {
-         completion = {
-            workspaceWord = false,
-            showWord = "Disable",
-         },
-         diagnostics = {
-            globals = { "vim", "use" },
-         },
-      },
-   },
-}
-
-require("lspconfig")["tsserver"].setup {
-   on_attach = function(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
-      client.resolved_capabilities.document_range_formatting = false
-      on_attach(client, bufnr)
+require("mason-lspconfig").setup_handlers {
+   -- The first entry (without a key) will be the default handler
+   -- and will be called for each installed server that doesn't have
+   -- a dedicated handler.
+   function(server_name) -- default handler (optional)
+      require("lspconfig")[server_name].setup {
+         on_attach = on_attach,
+      }
    end,
-}
-
-require("lspconfig")["rust_analyzer"].setup {
-   on_attach = on_attach,
-}
-
-require("lspconfig")["eslint"].setup {
-   on_attach = on_attach,
+   ["sumneko_lua"] = function()
+      require("lspconfig")["sumneko_lua"].setup {
+         on_attach = on_attach,
+         settings = {
+            Lua = {
+               completion = {
+                  workspaceWord = false,
+                  showWord = "Disable",
+               },
+               diagnostics = {
+                  globals = { "vim", "use" },
+               },
+            },
+         },
+      }
+   end,
+   ["tsserver"] = function()
+      require("lspconfig")["tsserver"].setup {
+         on_attach = function(client, bufnr)
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+            on_attach(client, bufnr)
+         end,
+      }
+   end,
 }
 
 -- local lsp_installer = require("nvim-lsp-installer")

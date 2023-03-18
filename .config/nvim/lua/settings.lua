@@ -22,6 +22,11 @@ vim.opt.statusline = "%#Normal#"
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 
+-- code folding settings thanks nick nisi
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
+
 vim.wo.wrap = false
 
 -- needed for scala/nvim-metals

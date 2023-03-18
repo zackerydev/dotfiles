@@ -1,11 +1,11 @@
-theme = os.getenv "THEME"
+local theme = os.getenv "THEME"
 
 vim.g.everforest_background = "soft"
 vim.g.everforest_better_performance = 1
 vim.g.everforest_enable_italic = 1
 vim.g.everforest_transparent_background = 1
 
-vim.o.background = string.lower(theme)
+vim.o.background = string.lower(theme or "")
 
 vim.cmd.colorscheme "everforest"
 

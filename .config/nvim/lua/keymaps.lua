@@ -8,7 +8,9 @@ end
 
 vim.g.mapleader = " "
 
-map("n", "<C-n>", ":NvimTreeFindFileToggle<CR>", { silent = true })
+map("n", "<C-n>", ":Neotree toggle=true<cr>", { silent = true })
+map("n", "<C-b>", ":Neotree toggle=true buffers<CR>", { silent = true })
+map("n", "<C-g>", ":Neotree toggle=true git_status<CR>", { silent = true })
 
 -- Better pane/buffer navigation
 
@@ -47,3 +49,16 @@ map("n", "<leader>gd", ":G diff<cr>")
 map("n", "<leader>gpf", ":G push -f<cr>")
 map("n", "<leader>gc", ":G commit<cr>")
 map("n", "<leader>gca", ":G commit -a --amend<cr>")
+
+-- Folding
+map("n", "<leader>o", "za")
+map("v", "<leader>o", "za")
+
+map("n", "<leader>l", "za")
+map("v", "<leader>l", "zc")
+
+map("n", "<leader>O", "zM")
+map("v", "<leader>O", "zM")
+
+map("n", "<leader>L", "zR")
+map("v", "<leader>L", "zR")
