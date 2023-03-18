@@ -37,7 +37,6 @@ if [[ -z "${CODESPACES}" ]]; then
     # sed -i '' '31s/1f252a/ffffff/' ~/.tmux.conf 
   fi
 else 
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   export TERM="xterm-256color"
 fi
 
