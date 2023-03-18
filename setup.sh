@@ -20,12 +20,11 @@ else
   ln -sf $dir/.tmux $HOME/.tmux
   ln -sf $dir/.bash_profile $HOME/.bash_profile
 
-  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zshrc
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   echo "Symlinks complete, running default setup!"
 
 
   # Setup Repositories for Neovim and Kubectl
+  sudo mkdir /etc/apt/keyrings
   sudo add-apt-repository -y ppa:neovim-ppa/unstable
   sudo apt update
   sudo apt install -y ca-certificates curl
