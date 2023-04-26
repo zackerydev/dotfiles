@@ -8,6 +8,9 @@ end
 
 vim.g.mapleader = " "
 
+-- Copilot
+-- map("i", "<C-Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 map("n", "<C-n>", ":Neotree toggle=true<cr>", { silent = true })
 map("n", "<C-b>", ":Neotree toggle=true buffers<CR>", { silent = true })
 map("n", "<C-g>", ":Neotree toggle=true git_status<CR>", { silent = true })

@@ -33,6 +33,7 @@ return require("packer").startup(function()
    }
    -- Colors
    use "sainnhe/everforest"
+   use "github/copilot.vim"
    use "sainnhe/edge"
    use "projekt0n/github-nvim-theme"
    use { "catppuccin/nvim", as = "catppuccin" }

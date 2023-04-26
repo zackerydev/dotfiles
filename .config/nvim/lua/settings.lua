@@ -1,3 +1,6 @@
+vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_no_tab_map = true
+
 vim.opt.clipboard = "unnamedplus" -- clipboard sync
 vim.opt.number = true -- numbers
 vim.opt.signcolumn = "yes" -- sign column

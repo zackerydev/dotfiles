@@ -52,6 +52,7 @@ export APOLLO_TELEMETRY_DISABLED=1
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 alias sz="source ~/.zshrc"
+alias a="assume"
 alias gs="git status"
 alias k="kubectl"
 alias p="pnpm"
@@ -73,6 +74,7 @@ alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # pnpm
 export PNPM_HOME="/Users/zack.griesinger/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+export PATH="$HOME/.moon/bin:$PATH"
 # pnpm end
 
 export PATH=$PATH:$(go env GOPATH)/bin
@@ -81,3 +83,4 @@ export AWS_SESSION_TOKEN_TTL=4h
 export AWS_CHAINED_SESSION_TOKEN_TTL=4h
 export AWS_ASSUME_ROLE_TTL=4h
 export AWS_FEDERATION_TOKEN_TT=4h
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
