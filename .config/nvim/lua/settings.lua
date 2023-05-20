@@ -1,5 +1,6 @@
 vim.g.copilot_assume_mapped = true
--- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_no_tab_map = trouble
+vim.cmd "let g:copilot_filetypes={ '*': v:true }"
 
 vim.opt.clipboard = "unnamedplus" -- clipboard sync
 vim.opt.number = true -- numbers

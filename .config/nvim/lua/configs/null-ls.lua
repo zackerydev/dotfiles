@@ -2,6 +2,8 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 require("null-ls").setup {
    sources = {
+      -- go
+      require("null-ls").builtins.formatting.gofmt,
       -- Lua
       require("null-ls").builtins.formatting.stylua,
 

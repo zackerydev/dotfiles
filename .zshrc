@@ -52,6 +52,7 @@ export APOLLO_TELEMETRY_DISABLED=1
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 alias sz="source ~/.zshrc"
+alias mark-local="~/GitHub/zgriesinger/mark/mark"
 alias a="assume"
 alias gs="git status"
 alias k="kubectl"
@@ -65,6 +66,7 @@ alias cop="copilot"
 alias wt="git worktree"
 alias web="gh pr view --web"
 alias rt="cd ../../../"
+alias aed="aws-vault exec default"
 alias arc-runners='k9s --context eks-us-west-2-testing --namespace actions-runner-system'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'

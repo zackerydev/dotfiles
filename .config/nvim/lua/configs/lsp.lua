@@ -5,7 +5,6 @@ require("mason-lspconfig").setup {
       "rust_analyzer",
       "tailwindcss",
       "tsserver",
-      "yamllint",
    },
 }
 
