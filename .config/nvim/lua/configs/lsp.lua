@@ -63,22 +63,6 @@ require("mason-lspconfig").setup_handlers {
          on_attach = on_attach,
       }
    end,
-   ["sumneko_lua"] = function()
-      require("lspconfig")["sumneko_lua"].setup {
-         on_attach = on_attach,
-         settings = {
-            Lua = {
-               completion = {
-                  workspaceWord = false,
-                  showWord = "Disable",
-               },
-               diagnostics = {
-                  globals = { "vim", "use" },
-               },
-            },
-         },
-      }
-   end,
    ["tsserver"] = function()
       require("lspconfig")["tsserver"].setup {
          on_attach = function(client, bufnr)
