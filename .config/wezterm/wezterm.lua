@@ -10,6 +10,18 @@ local schemes = {
 		dark = "Everforest Dark (Gogh)",
 		light = "Everforest Light (Gogh)",
 	},
+	gruvbox = {
+		dark = "Gruvbox Material (Gogh)",
+		light = "Gruvbox Light",
+	},
+	github = {
+		dark = "GitHub Dark",
+		light = "GitHub Light",
+	},
+	gruvhub = {
+		dark = "Gruvbox Material (Gogh)",
+		light = "Github",
+	},
 }
 
 local function get_appearance()
@@ -33,7 +45,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = scheme_for_appearance(get_appearance(), "everforest")
+config.color_scheme = scheme_for_appearance(get_appearance(), "gruvhub")
 
 config.enable_tab_bar = false
 
@@ -56,10 +68,11 @@ config.window_padding = {
 -- 			File = "/Users/zack.griesinger/Pictures/green-forest-fog-nature-dawn.jpg",
 -- 		},
 -- 	},
--- }
+--
+-- } TODO
 
 config.font = wezterm.font_with_fallback({
-	"Cascadia Code",
+	{ family = "Rec Mono Semicasual" },
 	{ family = "Symbols Nerd Font Mono", scale = 0.65 },
 })
 

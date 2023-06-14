@@ -5,6 +5,7 @@ return require("packer").startup(function()
    use "tpope/vim-rhubarb"
    use "tpope/vim-surround"
    use "nvim-tree/nvim-web-devicons"
+   use "j-hui/fidget.nvim"
    -- Winbar
    use {
       "fgheng/winbar.nvim",
@@ -34,6 +35,7 @@ return require("packer").startup(function()
    -- Colors
    use "sainnhe/everforest"
    use "github/copilot.vim"
+   use "ellisonleao/gruvbox.nvim"
    use "sainnhe/edge"
    use "projekt0n/github-nvim-theme"
    use { "catppuccin/nvim", as = "catppuccin" }

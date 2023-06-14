@@ -86,3 +86,4 @@ export AWS_CHAINED_SESSION_TOKEN_TTL=4h
 export AWS_ASSUME_ROLE_TTL=4h
 export AWS_FEDERATION_TOKEN_TT=4h
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export EDITOR=nvim

@@ -9,10 +9,10 @@ require("null-ls").setup {
 
       -- JS/TS
       require("null-ls").builtins.formatting.prettierd,
-      require("null-ls").builtins.diagnostics.tsc,
+      -- require("null-ls").builtins.diagnostics.tsc,
 
       -- Deno ?
-      -- require("null-ls").builtins.formatting.deno_fmt,
+      require("null-ls").builtins.formatting.deno_fmt,
 
       -- Others
       require("null-ls").builtins.diagnostics.yamllint,
