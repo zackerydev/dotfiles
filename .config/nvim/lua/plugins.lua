@@ -5,7 +5,8 @@ return require("packer").startup(function()
    use "tpope/vim-rhubarb"
    use "tpope/vim-surround"
    use "nvim-tree/nvim-web-devicons"
-   use "j-hui/fidget.nvim"
+   use "towolf/vim-helm"
+
    -- Winbar
    use {
       "fgheng/winbar.nvim",
@@ -34,6 +35,7 @@ return require("packer").startup(function()
    }
    -- Colors
    use "sainnhe/everforest"
+   use "sainnhe/gruvbox-material"
    use "github/copilot.vim"
    use "ellisonleao/gruvbox.nvim"
    use "sainnhe/edge"
@@ -199,13 +201,10 @@ return require("packer").startup(function()
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
    }
+   use { "mhartington/formatter.nvim" }
    use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-   }
-   use {
-      "jose-elias-alvarez/null-ls.nvim",
-      requires = { { "nvim-lua/plenary.nvim" } },
    }
    use "numToStr/Comment.nvim"
    use "L3MON4D3/LuaSnip"

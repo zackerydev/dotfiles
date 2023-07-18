@@ -21,8 +21,8 @@ vim.opt.shiftwidth = 2 -- keep space tabs small
 vim.opt.tabstop = 2 -- keep tab tabs small
 vim.opt.syntax = "on" -- syntax highlighting
 vim.opt.termguicolors = true
-vim.opt.laststatus = 0
-vim.opt.statusline = "%#Normal#"
+vim.opt.laststatus = 3
+-- vim.opt.statusline = "%#Normal#"
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 
@@ -35,3 +35,11 @@ vim.wo.wrap = false
 
 -- needed for scala/nvim-metals
 vim.opt_global.shortmess:remove "F"
+
+-- Format on save 
+vim.cmd [[  
+  augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePost * FormatWrite
+  augroup END
+]]

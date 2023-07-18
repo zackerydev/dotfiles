@@ -1,5 +1,4 @@
 require("mason").setup()
-require("fidget").setup {}
 require("mason-lspconfig").setup {
    ensure_installed = {
       "jsonls",
@@ -98,6 +97,18 @@ require("mason-lspconfig").setup_handlers {
          },
       }
    end,
+   ["yamlls"] = function()
+      require("lspconfig")["yamlls"].setup {
+         on_attach = on_attach,
+         settings = {
+            yaml = {
+               schemas = {
+                  ["https://raw.githubusercontent.com/DataDog/schema/main/service-catalog/v2.1/schema.json"] = "/service.datadog.yaml",
+               },
+            },
+         },
+      }
+   end,
    ["denols"] = function()
       require("lspconfig")["denols"].setup {
          root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
@@ -130,8 +141,8 @@ require("mason-lspconfig").setup_handlers {
             return drop_deno_lsp(fname, require("lspconfig").util.root_pattern("package.json", "tsconfig.json"))
          end,
          on_attach = function(client, bufnr)
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
+            -- client.resolved_capabilities.document_formatting = false
+            -- client.resolved_capabilities.document_range_formatting = false
             on_attach(client, bufnr)
          end,
       }

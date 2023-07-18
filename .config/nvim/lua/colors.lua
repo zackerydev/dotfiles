@@ -1,8 +1,11 @@
 local theme = os.getenv "THEME"
 
-require("gruvbox").setup {
-   transparent_mode = true,
-}
+-- require("gruvbox").setup {
+--    transparent_mode = true,
+-- }
+-- require("github-theme").setup {
+--    theme_style = theme,
+-- }
 
 vim.g.everforest_background = "soft"
 vim.g.everforest_better_performance = 1
@@ -12,11 +15,7 @@ vim.g.everforest_transparent_background = 1
 vim.o.background = string.lower(theme or "")
 
 vim.cmd.colorscheme "everforest"
--- vim.cmd.colorscheme "gruvbox"
 
--- require("github-theme").setup {
---    theme_style = theme,
--- }
 --
 -- local flavour = "mocha"
 --
