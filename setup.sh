@@ -51,9 +51,8 @@ fi
 rm -rf ~/.oh-my-zsh
 KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" "--unattended"
 
-# Packer for Neovim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim 2> /dev/null
+# AstroNvim
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
 # Oh My ZSH plugins
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf 2> /dev/null 
