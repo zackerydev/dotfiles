@@ -1,4 +1,4 @@
--- Pull in the Wezterm API
+-- Pull in the Wezterm APIsainnhe/gruvbox-material
 local wezterm = require("wezterm")
 
 local schemes = {
@@ -16,11 +16,15 @@ local schemes = {
 	},
 	github = {
 		dark = "GitHub Dark",
-		light = "GitHub Light",
+		light = "GitHub (Gogh)",
 	},
 	gruvhub = {
 		dark = "Gruvbox Material (Gogh)",
 		light = "Github",
+	},
+	blank = {
+		dark = "",
+		light = "",
 	},
 }
 
@@ -45,7 +49,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = scheme_for_appearance(get_appearance(), "gruvhub")
+config.color_scheme = scheme_for_appearance(get_appearance(), "everforest")
 
 config.enable_tab_bar = false
 
@@ -59,7 +63,7 @@ config.window_padding = {
 	left = 20,
 	right = 20,
 	top = 20,
-	bottom = 10,
+	bottom = 20,
 }
 
 -- config.background = {
@@ -72,8 +76,8 @@ config.window_padding = {
 -- } TODO
 
 config.font = wezterm.font_with_fallback({
-	{ family = "Rec Mono Semicasual" },
-	{ family = "Symbols Nerd Font Mono", scale = 0.65 },
+	{ family = "Cascadia Code" },
+	{ family = "SpaceMono Nerd Font", scale = 0.8 },
 })
 
 config.term = "wezterm"
