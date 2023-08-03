@@ -3,6 +3,7 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.utility.transparent-nvim" },
+  { import = "astrocommunity.pack.typescript" },
   { -- further customize the options set by the community
     "copilot.lua",
     opts = {

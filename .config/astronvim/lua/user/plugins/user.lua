@@ -1,4 +1,5 @@
 return {
+  { "sainnhe/gruvbox-material" },
   {
     "xiyaowong/transparent.nvim",
     lazy = false,

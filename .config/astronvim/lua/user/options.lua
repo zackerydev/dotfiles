@@ -12,7 +12,7 @@ return {
     shiftwidth = 2,
     expandtab = true,
     softtabstop = 2,
-    laststatus = 0
+    -- laststatus = 0
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader

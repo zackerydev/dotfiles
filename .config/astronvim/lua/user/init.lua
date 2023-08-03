@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "everforest",
+  colorscheme = "gruvbox-material",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -27,6 +27,16 @@ return {
   },
 
   lsp = {
+    config = {
+      denols = function(opts)
+        opts.root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
+        return opts
+      end,
+      tsserver = function(opts)
+        opts.root_dir = require("lspconfig.util").root_pattern("package.json")
+        return opts
+      end,
+    },
     -- customize lsp formatting options
     formatting = {
       -- control auto formatting on save
@@ -40,6 +50,10 @@ return {
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
+        "typescript",
+        "deno_fmt",
+        "denols",
+        "tsserver"
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         -- "lua_ls",
       },
@@ -69,6 +83,9 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    require("notify").setup({
+        background_colour = "#000000"
+    })
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
