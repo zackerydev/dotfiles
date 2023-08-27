@@ -20,7 +20,6 @@ if [[ -z "${CODESPACES}" ]]; then
   export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
   if defaults read -g AppleInterfaceStyle &>/dev/null; then
     # kitty +kitten themes --reload-in=all Github Dark
-    kitty +kitten themes --reload-in=all Everforest Dark Soft
     mv ~/.config/k9s/skin.yml ~/.config/k9s/skin-light.yml 2>/dev/null; true
     export THEME="DARK"
     export CATPUCCIN_THEME="mocha"
@@ -29,7 +28,6 @@ if [[ -z "${CODESPACES}" ]]; then
 
   else
     # kitty +kitten themes --reload-in=all Github-light-default
-    kitty +kitten themes --reload-in=all Everforest Light Soft
     mv ~/.config/k9s/skin-light.yml ~/.config/k9s/skin.yml 2>/dev/null; true
     export THEME="LIGHT"
     export CATPUCCIN_THEME="latte"
@@ -87,5 +85,3 @@ export AWS_ASSUME_ROLE_TTL=4h
 export AWS_FEDERATION_TOKEN_TT=4h
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export EDITOR=nvim
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
