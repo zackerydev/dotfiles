@@ -10,9 +10,10 @@ local schemes = {
 		dark = "Everforest Dark (Gogh)",
 		light = "Everforest Light (Gogh)",
 	},
+
 	gruvbox = {
 		dark = "Gruvbox Material (Gogh)",
-		light = "Gruvbox Light",
+		light = "Everforest Light (Gogh)",
 	},
 	github = {
 		dark = "GitHub Dark",
@@ -20,7 +21,7 @@ local schemes = {
 	},
 	gruvhub = {
 		dark = "Gruvbox Material (Gogh)",
-		light = "Github",
+		light = "Everforest Light (Gogh)",
 	},
 	blank = {
 		dark = "",
@@ -49,7 +50,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = scheme_for_appearance(get_appearance(), "everforest")
+config.color_scheme = scheme_for_appearance(get_appearance(), "gruvhub")
 
 config.enable_tab_bar = false
 
@@ -57,23 +58,37 @@ config.window_decorations = "RESIZE"
 
 config.font_size = 14
 
-config.window_background_opacity = 0.95
+-- config.window_background_opacity = 0
 
 config.window_padding = {
 	left = 20,
 	right = 20,
-	top = 20,
-	bottom = 20,
+	top = 10,
+	bottom = 10,
 }
 
--- config.background = {
--- 	{
--- 		source = {
--- 			File = "/Users/zack.griesinger/Pictures/green-forest-fog-nature-dawn.jpg",
--- 		},
--- 	},
---
--- } TODO
+config.background = {
+	{
+		width = "100%",
+		height = "100%",
+		opacity = 1,
+		source = {
+			Color = "#1d2021",
+			-- Color = "#fffbef",
+		},
+	},
+	{
+		source = {
+			File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
+		},
+		opacity = 0.2,
+		hsb = {
+			saturation = 1,
+			hue = 1,
+			brightness = 1,
+		},
+	},
+}
 
 config.font = wezterm.font_with_fallback({
 	{ family = "Cascadia Code" },

@@ -9,9 +9,6 @@
 !.*
 
 .config/k9s/config.yml
-.config/nvim/.github
-.config/nvim/
-.config/nvim/plugin/packer_compiled.lua
 .config/yarn
 credentials
 .aws
