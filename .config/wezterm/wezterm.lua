@@ -67,14 +67,19 @@ config.window_padding = {
 	bottom = 10,
 }
 
+local color = "#1d2021"
+
+if get_appearance():find("Light") then
+	color = "#fffbef"
+end
+
 config.background = {
 	{
 		width = "100%",
 		height = "100%",
 		opacity = 1,
 		source = {
-			Color = "#1d2021",
-			-- Color = "#fffbef",
+			Color = color,
 		},
 	},
 	{
@@ -96,5 +101,7 @@ config.font = wezterm.font_with_fallback({
 })
 
 config.term = "wezterm"
+
+config.max_fps = 160
 
 return config

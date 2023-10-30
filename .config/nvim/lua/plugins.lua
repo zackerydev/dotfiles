@@ -26,7 +26,7 @@ require("lazy").setup({
 		},
 	},
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim", tag = "0.1.2" },
+	{ "nvim-telescope/telescope.nvim", tag = "0.1.3" },
 	"folke/which-key.nvim",
 	-- Color Schemes
 	"sainnhe/gruvbox-material",
@@ -39,21 +39,37 @@ require("lazy").setup({
 		config = function()
 			require("everforest").setup({
 				-- Your config here
+				background = "soft",
+				transparent_background_level = 2,
+				italics = true,
+				on_highlights = function(hl, palette)
+					hl.StatusLineNC = { fg = palette.none, bg = palette.none, sp = palette.red }
+				end,
 			})
 		end,
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup({})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
 	},
 	-- Git
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
 	-- Transparency
-	"xiyaowong/transparent.nvim",
+	-- "xiyaowong/transparent.nvim",
 	-- LSP
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
 	"nvim-treesitter/nvim-treesitter",
 	-- Linting/Formatting
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	-- Comment
 	"terrortylor/nvim-comment",
 	-- Completion

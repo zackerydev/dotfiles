@@ -1,4 +1,3 @@
-local custom_gruv = require("lualine.themes.gruvbox-material")
 local theme = os.getenv("THEME")
 local lualine_theme = "gruvbox-material"
 
