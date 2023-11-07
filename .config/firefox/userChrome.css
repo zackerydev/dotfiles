@@ -1,0 +1,15 @@
+#TabsToolbar {
+  display: none;
+}
+
+#sidebar-header {
+  display: none;
+}
+
+#nav-bar {
+  padding-top: 1rem;
+}
+
+.sidebar-splitter {
+  opacity: 0 !important;
+}
