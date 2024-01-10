@@ -21,7 +21,11 @@ local schemes = {
 	},
 	gruvhub = {
 		dark = "Gruvbox Material (Gogh)",
-		light = "Everforest Light (Gogh)",
+		light = "Catppuccin Latte (Gogh)",
+	},
+	nord = {
+		dark = "nord",
+		light = "Nord Light (Gogh)",
 	},
 	blank = {
 		dark = "",
@@ -50,7 +54,9 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = scheme_for_appearance(get_appearance(), "gruvhub")
+config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "calt", "dlig" }
+
+config.color_scheme = scheme_for_appearance(get_appearance(), "nord")
 
 config.enable_tab_bar = false
 
@@ -84,9 +90,9 @@ config.background = {
 	},
 	{
 		source = {
-			File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
+			File = os.getenv("HOME") .. "/.config/wezterm/minimal_mountains.png",
 		},
-		opacity = 0.2,
+		opacity = 0.1,
 		hsb = {
 			saturation = 1,
 			hue = 1,
@@ -96,9 +102,45 @@ config.background = {
 }
 
 config.font = wezterm.font_with_fallback({
-	{ family = "Cascadia Code" },
+	{
+		family = "Monaspace Neon",
+		harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" },
+	},
 	{ family = "SpaceMono Nerd Font", scale = 0.8 },
 })
+
+config.font_rules = {
+	{ -- Italic
+		intensity = "Normal",
+		italic = true,
+		font = wezterm.font({
+			-- family="Monaspace Radon",  -- script style
+			family = "Monaspace Xenon", -- courier-like
+			style = "Italic",
+		}),
+	},
+
+	{ -- Bold
+		intensity = "Bold",
+		italic = false,
+		font = wezterm.font({
+			family = "Monaspace Neon",
+			-- family = "Monaspace Krypton",
+			-- weight='ExtraBold',
+			weight = "Bold",
+		}),
+	},
+
+	{ -- Bold Italic
+		intensity = "Bold",
+		italic = true,
+		font = wezterm.font({
+			family = "Monaspace Xenon",
+			style = "Italic",
+			weight = "Bold",
+		}),
+	},
+}
 
 config.term = "wezterm"
 

@@ -120,16 +120,30 @@ require("mason-lspconfig").setup_handlers({
 			root_dir = function(fname)
 				return drop_deno_lsp(
 					fname,
-					require("lspconfig").util.root_pattern(".eslintrc.js", ".eslintrc.json", ".eslintrc")
+					require("lspconfig").util.root_pattern(
+						"eslint.config.js",
+						".eslintrc.js",
+						".eslintrc.json",
+						".eslintrc"
+					)
 				)
 			end,
-			on_attach = on_attach,
+			on_attach = function(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					command = "EslintFixAll",
+				})
+				on_attach(client, bufnr)
+			end,
 		})
 	end,
 	["tailwindcss"] = function()
 		require("lspconfig")["tailwindcss"].setup({
 			root_dir = function(fname)
-				return drop_deno_lsp(fname, require("lspconfig").util.root_pattern("tailwind.config.cjs"))
+				return drop_deno_lsp(
+					fname,
+					require("lspconfig").util.root_pattern("tailwind.config.cjs", "tailwind.config.mjs")
+				)
 			end,
 			on_attach = on_attach,
 		})

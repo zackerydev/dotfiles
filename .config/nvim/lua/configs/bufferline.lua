@@ -1,1 +1,23 @@
--- require("bufferline").setup({})
+local bufferline = require("bufferline")
+
+-- require("bufferline").setup({
+-- 	options = {
+-- 		style_preset = bufferline.style_preset.no_italic,
+-- 		themeable = true,
+-- 		separator_style = { "", "" },
+-- 		tab_size = 12,
+-- 		show_buffer_close_icons = false,
+-- 		show_close_icon = false,
+-- 		indicator = {
+-- 			style = "none",
+-- 		},
+-- 		offsets = {
+-- 			{
+-- 				filetype = "neo-tree",
+-- 				text = " Files",
+-- 				text_align = "left",
+-- 				separator = true,
+-- 			},
+-- 		},
+-- 	},
+-- })

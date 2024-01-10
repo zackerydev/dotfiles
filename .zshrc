@@ -35,7 +35,7 @@ if [[ -z "${CODESPACES}" ]]; then
     # sed -i '' '31s/1f252a/ffffff/' ~/.tmux.conf 
   fi
 else 
-  export TERM="xterm-256color"
+  export TERM="tmux-256color"
 fi
 
 # Completion for GH
@@ -54,11 +54,13 @@ alias mark-local="~/GitHub/zgriesinger/mark/mark"
 alias a="assume"
 alias gs="git status"
 alias k="kubectl"
+alias c="cargo"
 alias p="pnpm"
 alias n="npm"
 alias gpf="git commit -a --amend && git push -f"
 alias dev="~/GitHub"
 alias mono="~/GitHub/c2fo/mono"
+alias z="~/GitHub/zackerydev"
 alias notes="~/Documents/notes"
 alias cop="copilot"
 alias wt="git worktree"
@@ -69,7 +71,6 @@ alias arc-runners='k9s --context eks-us-west-2-testing --namespace actions-runne
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias df='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
 
 # pnpm
 export PNPM_HOME="/Users/zack.griesinger/Library/pnpm"
@@ -83,5 +84,14 @@ export AWS_SESSION_TOKEN_TTL=4h
 export AWS_CHAINED_SESSION_TOKEN_TTL=4h
 export AWS_ASSUME_ROLE_TTL=4h
 export AWS_FEDERATION_TOKEN_TT=4h
+
+
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export EDITOR=nvim
+
+# bun completions
+[ -s "/Users/zack.griesinger/.bun/_bun" ] && source "/Users/zack.griesinger/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

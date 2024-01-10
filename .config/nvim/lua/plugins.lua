@@ -25,11 +25,13 @@ require("lazy").setup({
 			"MunifTanjim/nui.nvim",
 		},
 	},
+	"towolf/vim-helm",
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", tag = "0.1.3" },
-	"folke/which-key.nvim",
 	-- Color Schemes
 	"sainnhe/gruvbox-material",
+	"shaunsingh/nord.nvim",
+	"projekt0n/github-nvim-theme",
 	{
 		"neanias/everforest-nvim",
 		version = false,
@@ -39,7 +41,7 @@ require("lazy").setup({
 		config = function()
 			require("everforest").setup({
 				-- Your config here
-				background = "soft",
+				background = "hard",
 				transparent_background_level = 2,
 				italics = true,
 				on_highlights = function(hl, palette)
@@ -48,28 +50,16 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{
-		"nvimdev/lspsaga.nvim",
-		config = function()
-			require("lspsaga").setup({})
-		end,
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
-	},
 	-- Git
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
-	-- Transparency
-	-- "xiyaowong/transparent.nvim",
 	-- LSP
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
 	"nvim-treesitter/nvim-treesitter",
-	-- Linting/Formatting
-	"nvimtools/none-ls.nvim",
+	-- Formatting
+	"stevearc/conform.nvim",
 	-- Comment
 	"terrortylor/nvim-comment",
 	-- Completion
@@ -115,13 +105,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-	-- {
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	config = function()
-	-- 		require("copilot_cmp").setup({})
-	-- 	end,
-	-- },
-	-- Trouble
 	{
 		"folke/trouble.nvim",
 		opts = {

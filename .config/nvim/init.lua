@@ -1,6 +1,6 @@
 -- require "keymaps"
 -- require "settings"
-require "plugins"
-require "options"
-require "keymaps"
-require "colors"
+require("plugins")
+require("options")
+require("keymaps")
+require("colors")

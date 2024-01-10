@@ -1,5 +1,5 @@
 local theme = os.getenv("THEME")
-local lualine_theme = "gruvbox-material"
+local lualine_theme = "nord"
 
 if theme == "LIGHT" then
 	lualine_theme = "everforest"
@@ -23,20 +23,20 @@ require("lualine").setup({
 		lualine_y = { "" },
 		lualine_z = { "" },
 	},
-	winbar = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {},
-	},
-	inactive_winbar = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = {},
-	},
+	-- winbar = {
+	-- 	lualine_a = {},
+	-- 	lualine_b = {},
+	-- 	lualine_c = { "filename" },
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = {},
+	-- },
+	-- inactive_winbar = {
+	-- 	lualine_a = {},
+	-- 	lualine_b = {},
+	-- 	lualine_c = { "filename" },
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = {},
+	-- },
 })
