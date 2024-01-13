@@ -1,5 +1,5 @@
 local theme = os.getenv("THEME")
-local lualine_theme = "nord"
+local lualine_theme = "nordic"
 
 if theme == "LIGHT" then
 	lualine_theme = "everforest"

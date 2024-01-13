@@ -17,10 +17,21 @@ vim.g.gruvbox_material_transparent_background = 2
 vim.g.nord_cursorline_transparent = true
 vim.g.nord_disable_background = true
 vim.g.nord_contrast = true
+vim.g.nord_italic = false
 
-require("nord").set()
+-- require("nord").set()
+-- if theme == "LIGHT" then
+-- 	vim.cmd.colorscheme("nordic")
+-- else
+-- 	vim.cmd.colorscheme("nordic")
+-- end
 
-vim.cmd([[colorscheme nord]])
+-- require("nordic").load({
+-- 	transparent_bg = true,
+-- 	bold_keywords = true,
+-- })
+--
+-- vim.cmd([[colorscheme nord]])
 
 -- vim.g.gruvbox_material_dim_inactive_windows = 1
 
@@ -34,12 +45,6 @@ vim.cmd([[colorscheme nord]])
 -- })
 --
 -- vim.cmd.colorscheme("everforest")
-
-if theme == "LIGHT" then
-	vim.cmd.colorscheme("nord")
-else
-	vim.cmd.colorscheme("nord")
-end
 
 -- Gruvbox Material
 --

@@ -31,6 +31,17 @@ require("lazy").setup({
 	-- Color Schemes
 	"sainnhe/gruvbox-material",
 	"shaunsingh/nord.nvim",
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nordic").load({
+				transparent_bg = true,
+				bold_keywords = true,
+			})
+		end,
+	},
 	"projekt0n/github-nvim-theme",
 	{
 		"neanias/everforest-nvim",
