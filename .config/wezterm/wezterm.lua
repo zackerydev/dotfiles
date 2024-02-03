@@ -16,8 +16,8 @@ local schemes = {
 		light = "Everforest Light (Gogh)",
 	},
 	github = {
-		dark = "GitHub Dark",
-		light = "GitHub (Gogh)",
+		dark = "Github Dark",
+		light = "Github (Gogh)",
 	},
 	gruvhub = {
 		dark = "Gruvbox Material (Gogh)",
@@ -25,7 +25,7 @@ local schemes = {
 	},
 	nord = {
 		dark = "nord",
-		light = "Nord Light (Gogh)",
+		light = "Github (Gogh)",
 	},
 	blank = {
 		dark = "",
@@ -56,7 +56,7 @@ end
 
 config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "calt", "dlig" }
 
-config.color_scheme = scheme_for_appearance(get_appearance(), "nord")
+config.color_scheme = scheme_for_appearance(get_appearance(), "gruvhub")
 
 config.enable_tab_bar = false
 
@@ -90,7 +90,7 @@ config.background = {
 	},
 	{
 		source = {
-			File = os.getenv("HOME") .. "/.config/wezterm/minimal_mountains.png",
+			File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
 		},
 		opacity = 0.1,
 		hsb = {
@@ -98,6 +98,14 @@ config.background = {
 			hue = 1,
 			brightness = 1,
 		},
+	},
+}
+
+config.ssh_domains = {
+	{
+		name = "home",
+		remote_address = "linux",
+		username = "zackery",
 	},
 }
 

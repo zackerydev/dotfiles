@@ -17,6 +17,7 @@ vim.g.mapleader = " "
 require("lazy").setup({
 	-- File Tree
 	"nvim-tree/nvim-web-devicons",
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -35,12 +36,7 @@ require("lazy").setup({
 		"AlexvZyl/nordic.nvim",
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("nordic").load({
-				transparent_bg = true,
-				bold_keywords = true,
-			})
-		end,
+		config = function() end,
 	},
 	"projekt0n/github-nvim-theme",
 	{

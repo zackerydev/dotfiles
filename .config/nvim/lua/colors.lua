@@ -19,12 +19,16 @@ vim.g.nord_disable_background = true
 vim.g.nord_contrast = true
 vim.g.nord_italic = false
 
--- require("nord").set()
--- if theme == "LIGHT" then
--- 	vim.cmd.colorscheme("nordic")
--- else
--- 	vim.cmd.colorscheme("nordic")
--- end
+if theme == "LIGHT" then
+	require("github-theme").setup({
+		options = {
+			transparent = true,
+		},
+	})
+else
+	-- require("nord").set()
+	vim.cmd([[colorscheme gruvbox-material]])
+end
 
 -- require("nordic").load({
 -- 	transparent_bg = true,
