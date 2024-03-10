@@ -137,6 +137,14 @@ require("mason-lspconfig").setup_handlers({
 			end,
 		})
 	end,
+	-- ["biome"] = function()
+	-- 	require("lspconfig")["biome"].setup({
+	-- 		root_dir = function(fname)
+	-- 			return drop_deno_lsp(fname, require("lspconfig").util.root_pattern("biome.json"))
+	-- 		end,
+	-- 		on_attach = on_attach,
+	-- 	})
+	-- end,
 	["tailwindcss"] = function()
 		require("lspconfig")["tailwindcss"].setup({
 			root_dir = function(fname)

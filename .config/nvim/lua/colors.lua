@@ -25,6 +25,7 @@ if theme == "LIGHT" then
 			transparent = true,
 		},
 	})
+	vim.cmd("colorscheme github_light")
 else
 	-- require("nord").set()
 	vim.cmd([[colorscheme gruvbox-material]])
