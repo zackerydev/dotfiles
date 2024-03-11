@@ -115,7 +115,7 @@ require("lazy").setup({
 	{
 		"folke/trouble.nvim",
 		opts = {
-			mode = "workspace_diagnostics",
+			mode = "document_diagnostics",
 		},
 	},
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },

@@ -21,7 +21,7 @@ local schemes = {
 	},
 	gruvhub = {
 		dark = "Gruvbox Material (Gogh)",
-		light = "Github (Gogh)",
+		light = "Catppuccin Latte (Gogh)",
 	},
 	nord = {
 		dark = "nord",
@@ -76,33 +76,30 @@ config.window_padding = {
 local color = "#1d2021"
 
 if get_appearance():find("Light") then
-	config.color_scheme = "Github (Gogh)"
-	config.colors = {
-		background = "#f5f5f5",
-	}
-else
-	config.background = {
-		{
-			width = "100%",
-			height = "100%",
-			opacity = 1,
-			source = {
-				Color = color,
-			},
-		},
-		{
-			source = {
-				File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
-			},
-			opacity = 0.1,
-			hsb = {
-				saturation = 1,
-				hue = 1,
-				brightness = 1,
-			},
-		},
-	}
+	color = "#fffbef"
 end
+
+config.background = {
+	{
+		width = "100%",
+		height = "100%",
+		opacity = 1,
+		source = {
+			Color = color,
+		},
+	},
+	{
+		source = {
+			File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
+		},
+		opacity = 0.1,
+		hsb = {
+			saturation = 1,
+			hue = 1,
+			brightness = 1,
+		},
+	},
+}
 
 config.ssh_domains = {
 	{
