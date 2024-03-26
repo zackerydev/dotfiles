@@ -2,15 +2,28 @@ local opt = vim.opt
 local g = vim.g
 local wo = vim.wo
 
+-- Map Leader first
+g.mapleader = " "
+
 -- UI
 opt.number = true -- line numbers
+opt.relativenumber = true -- relative line numbers
 opt.syntax = "on" -- syntax highlight
+opt.showmode = false -- no mode
 opt.termguicolors = true -- terminal ui color
 opt.signcolumn = "yes" -- sign column for LSP
 opt.cursorline = true -- highlight whole line
 opt.cmdheight = 0 -- no cmd line
 opt.laststatus = 3 -- one statusline
+opt.breakindent = true -- break indent
+-- opt.updatetimk = 250 -- decrease update time
+-- opt.timeoutlen = 300 -- faster timeout
+opt.splitright = true -- split right
+opt.splitbelow = true -- split below
+
 wo.wrap = false
+
+g.have_nerd_font = true
 
 -- Copilot
 g.copilot_filetypes = {}

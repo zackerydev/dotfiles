@@ -120,6 +120,31 @@ require("lazy").setup({
 	},
 	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	"nvim-lualine/lualine.nvim",
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		lazy = false, -- specify lazy = false because some lazy.nvim distributions set lazy = true by default
+		-- tag = "*",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {}, -- Loads default behaviour
+					["core.concealer"] = {}, -- Adds pretty icons to your documents
+					["core.dirman"] = { -- Manages Neorg workspaces
+						config = {
+							workspaces = {
+								notes = "~/notes",
+							},
+						},
+					},
+				},
+			})
+		end,
+	},
+	-- markdown plugins
+	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	{ "dhruvasagar/vim-table-mode" },
 })
 
 require("configs")
