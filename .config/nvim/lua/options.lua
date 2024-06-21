@@ -3,15 +3,15 @@ local g = vim.g
 local wo = vim.wo
 
 -- Map Leader first
-g.mapleader = " "
+g.mapleader = ' '
 
 -- UI
 opt.number = true -- line numbers
 opt.relativenumber = true -- relative line numbers
-opt.syntax = "on" -- syntax highlight
+opt.syntax = 'on' -- syntax highlight
 opt.showmode = false -- no mode
 opt.termguicolors = true -- terminal ui color
-opt.signcolumn = "yes" -- sign column for LSP
+opt.signcolumn = 'yes' -- sign column for LSP
 opt.cursorline = true -- highlight whole line
 opt.cmdheight = 0 -- no cmd line
 opt.laststatus = 3 -- one statusline
@@ -29,11 +29,11 @@ g.have_nerd_font = true
 g.copilot_filetypes = {}
 
 -- Clipboard
-opt.clipboard = "unnamedplus"
+opt.clipboard = 'unnamedplus'
 
 -- Folding - thanks to Nick Nisi
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.foldlevel = 99
 
 -- Search
@@ -53,4 +53,4 @@ opt.swapfile = false
 g.transparent_enabled = true
 
 -- Sometimes mouse
-vim.opt.mouse = "a"
+vim.opt.mouse = 'a'

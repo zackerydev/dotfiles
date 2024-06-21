@@ -1,12 +1,12 @@
 -- System theme grab
-local theme = os.getenv("THEME")
+local theme = os.getenv 'THEME'
 
 -- Background
-vim.o.background = string.lower(theme or "")
+vim.o.background = string.lower(theme or '')
 
 vim.g.gruvbox_material_better_performance = 1
 
-vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_background = 'hard'
 
 -- vim.g.gruvbox_material_enable_bold = 1
 -- vim.g.gruvbox_material_enable_italic = 1
@@ -19,16 +19,18 @@ vim.g.nord_disable_background = true
 vim.g.nord_contrast = true
 vim.g.nord_italic = false
 
-if theme == "LIGHT" then
-	require("github-theme").setup({
-		options = {
-			transparent = true,
-		},
-	})
+require('everforest').load()
+if theme == 'LIGHT' then
+  -- require('github-theme').setup {
+  --   options = {
+  --     transparent = true,
+  --   },
+  -- }
 else
-	-- require("nord").set()
-	vim.cmd([[colorscheme gruvbox-material]])
+  -- require("nord").set()
+  -- vim.cmd [[colorscheme everforest]]
 end
+vim.cmd [[colorscheme everforest]]
 
 -- require("nordic").load({
 -- 	transparent_bg = true,
@@ -39,7 +41,6 @@ end
 
 -- vim.g.gruvbox_material_dim_inactive_windows = 1
 
--- require("everforest").load()
 --
 -- require("github-theme").setup({
 -- 	options = {
