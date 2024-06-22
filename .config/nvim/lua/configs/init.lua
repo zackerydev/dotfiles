@@ -1,6 +1,3 @@
--- Any plugins with simple configs
-require('nvim_comment').setup {}
-
 -- Require all other `.lua` files in the same directory
 
 local info = debug.getinfo(1, 'S')

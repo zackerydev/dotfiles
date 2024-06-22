@@ -7,15 +7,12 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Neotree
-map('n', '<leader>o', ':Neotree toggle=true<cr>', { silent = true })
-map('n', '<leader>b', ':Neotree toggle=true buffers<CR>', { silent = true })
-map('n', '<leader>g', ':Neotree toggle=true git_status<CR>', { silent = true })
+-- map('n', '<leader>o', ':Neotree toggle=true<cr>', { silent = true })
+-- map('n', '<leader>b', ':Neotree toggle=true buffers<CR>', { silent = true })
+-- map('n', '<leader>g', ':Neotree toggle=true git_status<CR>', { silent = true })
 
--- Buffer Navigation
-map('n', '<C-h>', '<C-w>h')
-map('n', '<C-j>', '<C-w>j')
-map('n', '<C-k>', '<C-w>k')
-map('n', '<C-l>', '<C-w>l')
+-- Mini.Files
+map('n', '<leader>o', ':lua MiniFiles.open()<cr>')
 
 map('n', '<Tab>', ':bnext<cr>')
 map('n', '<S-Tab>', ':bprevious<cr>')
