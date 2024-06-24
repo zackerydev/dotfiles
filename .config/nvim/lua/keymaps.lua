@@ -7,12 +7,10 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Neotree
--- map('n', '<leader>o', ':Neotree toggle=true<cr>', { silent = true })
--- map('n', '<leader>b', ':Neotree toggle=true buffers<CR>', { silent = true })
--- map('n', '<leader>g', ':Neotree toggle=true git_status<CR>', { silent = true })
+map('n', '<leader>o', ':Neotree toggle=true<cr>', { silent = true })
+map('n', '<leader>b', ':Neotree toggle=true buffers<CR>', { silent = true })
+map('n', '<leader>g', ':Neotree toggle=true git_status<CR>', { silent = true })
 
--- Mini.Files
-map('n', '<leader>o', ':lua MiniFiles.open()<cr>')
 
 map('n', '<Tab>', ':bnext<cr>')
 map('n', '<S-Tab>', ':bprevious<cr>')
@@ -33,7 +31,8 @@ map('n', '<leader>fr', ':Telescope resume<cr>')
 
 -- LSP
 -- Trouble
-map('n', '<leader>tt', ':TroubleToggle<CR>')
+map('n', '<leader>tt', ':Trouble diagnostics<CR>')
+map('n', '<leader>tca', ':Trouble quickfix<CR>')
 
 -- fuGITive
 map('n', '<leader>gp', ':G push<cr>')
