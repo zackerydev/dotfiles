@@ -16,6 +16,8 @@ opt.breakindent = true -- break indent
 opt.cmdheight = 0 
 opt.laststatus = 3
 
+opt.undofile = true
+
 g.have_nerd_font = true
 g.transparent_enabled = true
 

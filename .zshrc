@@ -15,27 +15,18 @@ export GPG_TTY=$(tty)
 alias helm2="/opt/homebrew/opt/helm@2/bin/helm"
 alias tf="terraform"
 
-# Detect Dark Mode
-if [[ -z "${CODESPACES}" ]]; then
-  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-  if defaults read -g AppleInterfaceStyle &>/dev/null; then
-    # kitty +kitten themes --reload-in=all Github Dark
-    mv ~/.config/k9s/skin.yml ~/.config/k9s/skin-light.yml 2>/dev/null; true
-    export THEME="DARK"
-    export CATPUCCIN_THEME="mocha"
-    export TMUX_BG="#1f252a"
-    # sed -i '' '31s/ffffff/1f252a/' ~/.tmux.conf
-
-  else
+# if OSTYPE is Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  export THEME="DARK"
+  # export TERM="tmux-256color"
+  export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+else 
     # kitty +kitten themes --reload-in=all Github-light-default
     mv ~/.config/k9s/skin-light.yml ~/.config/k9s/skin.yml 2>/dev/null; true
     export THEME="LIGHT"
     export CATPUCCIN_THEME="latte"
     export TMUX_BG="#ffffff"
-    # sed -i '' '31s/1f252a/ffffff/' ~/.tmux.conf 
-  fi
-else 
-  export TERM="tmux-256color"
 fi
 
 # Completion for GH
@@ -95,3 +86,4 @@ export EDITOR=nvim
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
