@@ -1,14 +1,3 @@
-require('mason').setup()
-require('mason-lspconfig').setup {
-  ensure_installed = {
-    'jsonls',
-    'rust_analyzer',
-    'tailwindcss',
-    'tsserver',
-    'denols',
-  },
-}
-
 vim.g.markdown_fenced_languages = {
   'ts=typescript',
 }
@@ -38,9 +27,9 @@ local function lspSymbol(name, icon)
   vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
-lspSymbol('Error', '')
-lspSymbol('Info', '')
-lspSymbol('Hint', '')
+lspSymbol('Error', '󰅙')
+lspSymbol('Info', '󰋼')
+lspSymbol('Hint', '󰌵')
 lspSymbol('Warn', '')
 
 --
@@ -67,7 +56,7 @@ local function drop_deno_lsp(fname, default_root_dir)
   return default_root_dir(fname)
 end
 
-require('mason-lspconfig').setup_handlers {
+local handlers = {
   -- The first entryc (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
@@ -128,18 +117,21 @@ require('mason-lspconfig').setup_handlers {
       on_attach = on_attach,
     }
   end,
-  ['tsserver'] = function()
-    require('lspconfig')['tsserver'].setup {
-      single_file_support = false,
-      root_dir = function(fname)
-        return drop_deno_lsp(fname, require('lspconfig').util.root_pattern('package.json', 'tsconfig.json'))
-      end,
-      on_attach = function(client, bufnr)
-        -- client.resolved_capabilities.document_formatting = false
-        -- client.resolved_capabilities.document_range_formatting = false
-        on_attach(client, bufnr)
-      end,
-    }
-  end,
 }
 
+return {
+  'williamboman/mason.nvim',
+  'neovim/nvim-lspconfig',
+  {
+    'williamboman/mason-lspconfig.nvim',
+    opts = {
+      ensure_installed = {
+        'jsonls',
+        'rust_analyzer',
+        'tailwindcss',
+        'denols',
+      },
+      handlers = handlers,
+    },
+  },
+}

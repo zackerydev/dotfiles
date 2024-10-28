@@ -1,5 +1,5 @@
 brew "git"
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "asdf"
 brew "hugo"
 brew "tig"
