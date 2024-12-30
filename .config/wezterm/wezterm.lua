@@ -60,7 +60,7 @@ end
 
 config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "calt", "dlig" }
 
-config.color_scheme = scheme_for_appearance(get_appearance(), "custom")
+config.color_scheme = scheme_for_appearance(get_appearance(), "everforest")
 
 config.enable_tab_bar = false
 
@@ -83,27 +83,27 @@ if get_appearance():find("Light") then
 	color = "#fffbef"
 end
 
--- config.background = {
--- 	{
--- 		width = "100%",
--- 		height = "100%",
--- 		opacity = 1,
--- 		source = {
--- 			Color = color,
--- 		},
--- 	},
--- 	{
--- 		source = {
--- 			File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
--- 		},
--- 		opacity = 0.1,
--- 		hsb = {
--- 			saturation = 1,
--- 			hue = 1,
--- 			brightness = 1,
--- 		},
--- 	},
--- }
+config.background = {
+	{
+		width = "100%",
+		height = "100%",
+		opacity = 1,
+		source = {
+			Color = color,
+		},
+	},
+	{
+		source = {
+			File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
+		},
+		opacity = 0.1,
+		hsb = {
+			saturation = 1,
+			hue = 1,
+			brightness = 1,
+		},
+	},
+}
 
 config.ssh_domains = {
 	{

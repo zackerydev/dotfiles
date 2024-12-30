@@ -25,10 +25,9 @@ return {
         silent = false,
       }
 
-      require('mini.statusline').setup()
-      require('mini.tabline').setup()
       require('mini.surround').setup()
       require('mini.starter').setup()
+      require('mini.icons').setup()
     end,
   },
 }

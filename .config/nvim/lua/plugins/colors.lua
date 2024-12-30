@@ -9,7 +9,11 @@ return {
       -- Optionally configure and load the colorscheme
       -- directly inside the plugin declaration.
       vim.g.gruvbox_material_enable_italic = true
-      vim.g.gruvbox_material_transparent_background = true
+      vim.g.gruvbox_material_transparent_background = 2
+      -- vim.g.gruvbox_material_better_performance = true
+      -- vim.g.gruvbox_material_dim_inactive_windows = true
+      vim.g.gruvbox_material_background = 'hard'
+      vim.cmd 'colorscheme gruvbox-material'
     end,
   },
   {
@@ -26,6 +30,7 @@ return {
         dim_inactive_windows = true,
         show_eob = false,
       }
+      -- vim.cmd 'colorscheme everforest'
     end,
   },
   {
@@ -37,8 +42,6 @@ return {
       require('github-theme').setup {
         -- ...
       }
-
-      vim.cmd 'colorscheme github_dark'
     end,
   },
 }

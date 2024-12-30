@@ -8,17 +8,20 @@ return {
     },
     formatters = {
       biome = {
-        args = { 'format', '--organize-imports-enabled=true', '--stdin-file-path', '$FILENAME' },
+        args = { 'format', '--stdin-file-path', '$FILENAME' },
+      },
+      ['biome-check'] = {
+        args = { 'check', '--stdin-file-path', '$FILENAME', '--fix' },
       },
     },
     formatters_by_ft = {
       lua = { 'stylua' },
       go = { 'goimports', 'gofmt' },
       -- Use a sub-list to run only the first available formatter
-      javascript = { 'biome' },
-      javascriptreact = { 'biome' },
-      typescript = { 'biome' },
-      typescriptreact = { 'biome' },
+      javascript = { 'biome-check' },
+      javascriptreact = { 'biome-check' },
+      typescript = { 'biome-check' },
+      typescriptreact = { 'biome-check' },
       rust = { 'rustfmt' },
     },
   },
