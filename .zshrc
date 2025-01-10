@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 
-plugins=(git aws)
+plugins=(git aws asdf)
 
 source $ZSH/oh-my-zsh.sh
 

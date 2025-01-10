@@ -3,8 +3,6 @@
 return {
   'saghen/blink.cmp',
   version = '0.8.x',
-  ---@module 'blink.cmp'
-  ---@type blink.cmp.Config
   opts = {
     keymap = {
       preset = 'default',

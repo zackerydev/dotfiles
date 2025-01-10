@@ -54,6 +54,9 @@ map('v', '<leader>O', 'zM', { desc = 'Close All Folds' })
 map('n', '<leader>L', 'zR', { desc = 'Open All Folds' })
 map('v', '<leader>L', 'zR', { desc = 'Open All Folds' })
 
+-- Neorg
+map('i', '<C-d>', '<Plug>(neorg.tempus.insert-date.insert-mode)')
+
 -- Dap
 vim.keymap.set('n', '<leader>dd', function()
   require('dap').continue()
