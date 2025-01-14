@@ -95,7 +95,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # nix
-any-nix-shell zsh --info-right | source /dev/stdin
+# any-nix-shell zsh --info-right | source /dev/stdin
 
 hrbytes() {  # human readable bytes. numfmt is cool.
   local num;

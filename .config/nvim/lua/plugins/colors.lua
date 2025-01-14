@@ -2,6 +2,15 @@
 
 return {
   {
+    'xiyaowong/nvim-transparent',
+    opts = {
+      extra_groups = {
+        'TroubleNormal',
+        'TroubleNormalNC',
+      },
+    },
+  },
+  {
     'sainnhe/gruvbox-material',
     lazy = false,
     priority = 1000,
