@@ -17,5 +17,8 @@ opt.breakindent = true -- break indent
 opt.cmdheight = 0
 opt.laststatus = 3
 
+-- background
+vim.o.background = 'dark'
+
 g.have_nerd_font = true
 g.transparent_enabled = true

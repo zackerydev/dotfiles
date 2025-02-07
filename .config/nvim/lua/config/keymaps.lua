@@ -30,8 +30,8 @@ map('n', '<leader>fr', ':Telescope resume<cr>', { desc = 'Resume Last Telescope'
 
 -- LSP
 -- Trouble
-map('n', '<leader>tt', ':Trouble diagnostics<CR>', { desc = 'Trouble Diagnostics' })
-map('n', '<leader>tca', ':Trouble quickfix<CR>', { desc = 'Trouble Quickfix' })
+-- map('n', '<leader>tt', ':Trouble diagnostics toggle<CR>', { desc = 'Trouble Diagnostics' })
+-- map('n', '<leader>tca', ':Trouble qflist toggle<CR>', { desc = 'Trouble Quickfix' })
 
 -- fuGITive
 map('n', '<leader>gp', ':G push<cr>', { desc = 'Git Push' })

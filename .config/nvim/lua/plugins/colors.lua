@@ -11,6 +11,15 @@ return {
     },
   },
   {
+    'comfysage/evergarden',
+    priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
+    opts = {
+      transparent_background = true,
+      variant = 'medium', -- 'hard'|'medium'|'soft'
+      overrides = {}, -- add custom overrides
+    },
+  },
+  {
     'sainnhe/gruvbox-material',
     lazy = false,
     priority = 1000,
@@ -22,7 +31,6 @@ return {
       -- vim.g.gruvbox_material_better_performance = true
       -- vim.g.gruvbox_material_dim_inactive_windows = true
       vim.g.gruvbox_material_background = 'hard'
-      vim.cmd 'colorscheme gruvbox-material'
     end,
   },
   {

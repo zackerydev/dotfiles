@@ -23,7 +23,14 @@ return {
     normal = { a = { fg = colors.orange } },
     sections = {
       lualine_a = { { 'mode', color = { bg = 'none', fg = colors.fg } } },
-      lualine_b = { { 'branch', color = { fg = colors.green, bg = 'none' } } },
+      lualine_b = {
+        { 'branch', color = { fg = colors.green, bg = 'none' } },
+        {
+          'filename',
+          path = 1,
+          color = { bg = 'none', fg = colors.fg },
+        },
+      },
       lualine_c = {
         '%=', --[[ add your center compoentnts here in place of this comment ]]
       },
