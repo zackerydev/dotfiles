@@ -30,4 +30,6 @@ cask "font-monaspace"
 cask "cleanshot"
 cask "moonlight"
 cask "betterdisplay"
-
+cask "rocket"
+cask "canva"
+cask "inkscape"

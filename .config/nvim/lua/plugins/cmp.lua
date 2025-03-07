@@ -2,7 +2,10 @@
 
 return {
   'saghen/blink.cmp',
-  version = '0.8.x',
+  version = '*',
+  dependencies = {
+    'Kaiser-Yang/blink-cmp-avante',
+  },
   opts = {
     keymap = {
       preset = 'default',
@@ -36,7 +39,16 @@ return {
       },
     },
     sources = {
-      default = { 'lsp', 'path' },
+      default = { 'avante', 'lsp', 'path' },
+      providers = {
+        avante = {
+          module = 'blink-cmp-avante',
+          name = 'Avante',
+          opts = {
+            -- options for blink-cmp-avante
+          },
+        },
+      },
     },
   },
   --

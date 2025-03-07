@@ -110,7 +110,10 @@ local handlers = {
   ['tailwindcss'] = function()
     require('lspconfig')['tailwindcss'].setup {
       root_dir = function(fname)
-        return drop_deno_lsp(fname, require('lspconfig').util.root_pattern('tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts'))
+        return drop_deno_lsp(
+          fname,
+          require('lspconfig').util.root_pattern('tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'astro.config.mjs')
+        )
       end,
       on_attach = on_attach,
     }
