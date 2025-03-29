@@ -114,4 +114,5 @@ hrbytes() {  # human readable bytes. numfmt is cool.
   numfmt --to=iec-i --suffix=B --format="%.3f" $from "${num//,}"
 }
 
+. "$HOME/.cargo/env"
 

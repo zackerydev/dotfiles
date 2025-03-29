@@ -1,8 +1,23 @@
 
-font-family = "Monaspace Neon Regular"
+font-family = "Maple Mono"
 font-family-italic = "Monaspace Radon Var Regular Italic"
 font-family-bold-italic = "Monaspace Radon Var Bold Italic"
-font-size = 16
+font-size = 14
+
+# monospace
+# https://usgraphics.com/products/berkeley-mono
+font-family = "Maple Mono"
+font-variation = wght=300
+font-variation = wdth=100
+font-family-bold = "Maple Mono"
+font-variation-bold = wght=800
+
+# italics
+# https://github.com/subframe7536/maple-font
+font-family-italic = "Maple Mono"
+font-variation-italic = wght=200
+font-family-bold-italic = "Maple Mono"
+font-variation-bold-italic = wght=800
 font-feature = +liga
 cursor-style = block
 adjust-underline-position = 4
@@ -12,7 +27,7 @@ clipboard-read = allow
 clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
-background-opacity = 0.9
+background-opacity = 1
 background-blur-radius = 20
 
 title = " "

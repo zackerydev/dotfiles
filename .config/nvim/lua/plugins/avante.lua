@@ -2,7 +2,7 @@ return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
   lazy = false,
-  version = '*', -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+  version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
     -- add any opts here
     provider = 'claude',
@@ -25,6 +25,12 @@ return {
       enable_token_counting = true, -- Whether to enable token counting. Default to true.
       enable_cursor_planning_mode = true, -- Whether to enable Cursor Planning Mode. Default to false.
     },
+    windows = {
+      -- sidebar_header = {
+      --   enabled = false,
+      --   rounded = false,
+      -- },
+    },
     mappings = {
       --- @class AvanteConflictMappings
       diff = {
@@ -37,7 +43,7 @@ return {
         prev = '[x',
       },
       suggestion = {
-        accept = '<C-a>',
+        accept = '<C-l>',
         next = '<C-n>',
         prev = '<C-p>',
         dismiss = '<C-]>',
@@ -67,6 +73,7 @@ return {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
     --- The below dependencies are optional,
+    'nvim-telescope/telescope.nvim', -- for file_selector provider telescope
     'hrsh7th/nvim-cmp', -- autocompletion for avante commands and mentions
     'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
     'zbirenbaum/copilot.lua', -- for providers='copilot'

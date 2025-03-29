@@ -19,6 +19,14 @@ return {
       theme = 'auto',
       component_separators = '',
       section_separators = '',
+      disabled_filetypes = {
+        winbar = {
+          'neo-tree',
+          'Avante',
+          'AvanteSelectedFiles',
+          'AvanteInput',
+        },
+      },
     },
     normal = { a = { fg = colors.orange } },
     sections = {
