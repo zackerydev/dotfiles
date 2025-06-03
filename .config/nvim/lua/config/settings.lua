@@ -17,6 +17,10 @@ opt.breakindent = true -- break indent
 opt.cmdheight = 0
 opt.laststatus = 3
 
+opt.signcolumn = 'no'
+
+opt.wrap = false
+
 -- background
 vim.o.background = 'dark'
 

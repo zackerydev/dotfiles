@@ -1,4 +1,5 @@
 require 'config.settings'
 require 'config.lazy'
 require 'config.keymaps'
-vim.cmd 'colorscheme evergarden'
+require 'config.lsp'
+vim.cmd [[colorscheme everforest]]

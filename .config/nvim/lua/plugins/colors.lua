@@ -2,24 +2,18 @@
 
 return {
   {
-    'comfysage/evergarden',
-    priority = 1000, -- Colorscheme plugin is loaded first before any other plugins
-    opts = {
-      theme = {
-        variant = 'fall',
-        accent = 'green',
-      },
-      transparent_background = true,
-      overrides = {
-        AvanteSidebarWinHorizontalSeparator = {
-          fg = '#1C2225',
-          bg = '#1C2225',
-        },
-        AvanteSidebarWinSeparator = {
-          fg = '#1C2225',
-          bg = '#1C2225',
-        },
-      },
-    },
+    'neanias/everforest-nvim',
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      require('everforest').setup {
+        background = 'hard',
+        transparent_background_level = 2,
+        italics = true,
+        -- Your config here
+      }
+    end,
   },
 }

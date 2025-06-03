@@ -1,15 +1,52 @@
-local colors = {
-  bg = '#1d2021', -- Background color (hard contrast)
-  fg = '#ebdbb2', -- Foreground color
-  yellow = '#fabd2f', -- Brighter yellow
-  cyan = '#8ec07c', -- Brighter cyan/greenish
-  darkblue = '#458588', -- Teal/blue
-  green = '#b8bb26', -- Brighter green
-  orange = '#fe8019', -- Brighter orange
-  violet = '#d3869b', -- Magenta/purple shade
-  magenta = '#d3869b', -- Soft magenta
-  blue = '#83a598', -- Light blue/tealish
-  red = '#fb4934', -- Brighter red
+local icon = require 'config.icons'
+local filetype = { 'filetype', icon_only = true }
+
+local lsp_status = {
+  'lsp_status',
+  icon = '', -- f013
+  symbols = {
+    spinner = icon.spinner,
+    done = false,
+    separator = ' ',
+  },
+  -- List of LSP names to ignore (e.g., `null-ls`):
+  ignore_lsp = {},
+}
+
+local diagnostics = {
+  'diagnostics',
+  sources = { 'nvim_diagnostic' },
+  sections = { 'error', 'warn', 'info', 'hint' },
+  symbols = {
+    error = icon.diagnostics.Error,
+    hint = icon.diagnostics.Hint,
+    info = icon.diagnostics.Info,
+    warn = icon.diagnostics.Warning,
+  },
+  colored = true,
+  update_in_insert = false,
+  always_visible = false,
+}
+
+local diff = {
+  'diff',
+  source = function()
+    local gitsigns = vim.b.gitsigns_status_dict
+    if gitsigns then
+      return {
+        added = gitsigns.added,
+        modified = gitsigns.changed,
+        removed = gitsigns.removed,
+      }
+    end
+  end,
+  symbols = {
+    added = icon.git.LineAdded .. ' ',
+    modified = icon.git.LineModified .. ' ',
+    removed = icon.git.LineRemoved .. ' ',
+  },
+  colored = true,
+  always_visible = false,
 }
 return {
   'nvim-lualine/lualine.nvim',
@@ -17,68 +54,18 @@ return {
   opts = {
     options = {
       theme = 'auto',
-      component_separators = '',
+      globalstatus = true,
       section_separators = '',
-      disabled_filetypes = {
-        winbar = {
-          'neo-tree',
-          'Avante',
-          'AvanteSelectedFiles',
-          'AvanteInput',
-        },
-      },
+      component_separators = '',
+      disabled_filetypes = { 'mason', 'lazy', 'NvimTree' },
     },
-    normal = { a = { fg = colors.orange } },
     sections = {
-      lualine_a = { { 'mode', color = { bg = 'none', fg = colors.fg } } },
-      lualine_b = {
-        { 'branch', color = { fg = colors.green, bg = 'none' } },
-        {
-          'filename',
-          path = 1,
-          color = { bg = 'none', fg = colors.fg },
-        },
-      },
-      lualine_c = {
-        '%=', --[[ add your center compoentnts here in place of this comment ]]
-      },
-      lualine_x = {},
-      lualine_y = {
-        {
-          'diagnostics',
-          sources = { 'nvim_lsp' },
-          color = { bg = 'none', fg = colors.fg },
-          colored = true,
-          symbols = {
-            error = ' ',
-            warn = ' ',
-            info = ' ',
-            hint = ' ',
-          },
-        },
-      },
-      lualine_z = {
-        { 'filetype', color = { bg = 'none', fg = colors.fg } },
-      },
-    },
-    inactive_sections = {
-      lualine_a = { 'filename' },
+      lualine_a = { 'mode' },
       lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
+      lualine_c = { 'filename', lsp_status, 'codecompanion', 'supermaven' },
+      lualine_x = { diff, diagnostics, filetype },
       lualine_y = {},
       lualine_z = {},
-    },
-    winbar = {
-      lualine_c = { 'filename' },
-    },
-    inactive_winbar = {
-      lualine_c = { 'filename' },
-    },
-    extensions = {
-      'neo-tree',
-      'trouble',
-      'mason',
     },
   },
 }
