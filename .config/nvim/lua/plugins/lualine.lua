@@ -61,8 +61,8 @@ return {
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = {},
-      lualine_c = { 'filename', lsp_status, 'codecompanion', 'supermaven' },
+      lualine_b = { 'branch' },
+      lualine_c = { { 'filename', path = 1 }, lsp_status, 'codecompanion', 'supermaven' },
       lualine_x = { diff, diagnostics, filetype },
       lualine_y = {},
       lualine_z = {},

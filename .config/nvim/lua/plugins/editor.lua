@@ -1,5 +1,36 @@
 return {
-  'terrortylor/nvim-comment',
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {
+      icons = {
+        separator = {
+          left = '',
+          right = '',
+        },
+        inactive = {
+          separator = {
+            left = '',
+            right = '',
+          },
+        },
+        separator_at_end = false,
+      },
+      sidebar_filetypes = {
+        ['neo-tree'] = true,
+      },
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+  },
   {
     'folke/trouble.nvim',
     opts = {},

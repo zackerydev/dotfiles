@@ -115,3 +115,19 @@ vim.keymap.set('n', '<Leader>ds', function()
   local widgets = require 'dap.ui.widgets'
   widgets.centered_float(widgets.scopes)
 end, { desc = 'Scopes Widget' })
+
+vim.diagnostic.config {
+  virtual_text = {
+    prefix = '',
+  },
+  signs = true,
+  underline = false,
+  update_in_insert = false,
+}
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = 'single',
+})
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = 'single',
+})

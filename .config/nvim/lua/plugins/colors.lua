@@ -1,6 +1,12 @@
---- Color Schemes
-
 return {
+  {
+    'f-person/auto-dark-mode.nvim',
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
   {
     'neanias/everforest-nvim',
     version = false,
@@ -9,7 +15,6 @@ return {
     -- Optional; default configuration will be used if setup isn't called.
     config = function()
       require('everforest').setup {
-        background = 'hard',
         transparent_background_level = 2,
         italics = true,
         -- Your config here

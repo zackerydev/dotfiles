@@ -42,4 +42,4 @@ window-vsync = true
 keybind = global:cmd+/=toggle_quick_terminal
 
 # theme = dark:/Users/zackery/.config/ghostty/themes/evergarden-spring-green.conf,light:/Users/zackery/.config/ghostty/themes/evergarden-summer-orange.conf
-theme = "Everforest Dark - Hard"
+theme = dark:"Everforest Dark - Hard",light:GruvboxLightHard

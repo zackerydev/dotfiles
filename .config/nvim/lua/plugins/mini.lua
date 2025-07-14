@@ -28,6 +28,10 @@ return {
       require('mini.surround').setup()
       require('mini.starter').setup()
       require('mini.icons').setup()
+      require('mini.comment').setup()
+      require('mini.statusline').setup()
+      -- require('mini.notify').setup()
+      -- require('mini.tabline').setup()
     end,
   },
 }
