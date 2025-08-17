@@ -1,45 +1,17 @@
-
-font-family = "Maple Mono"
-font-family-italic = "Monaspace Radon Var Regular Italic"
-font-family-bold-italic = "Monaspace Radon Var Bold Italic"
-font-size = 14
-
-# monospace
-# https://usgraphics.com/products/berkeley-mono
-font-family = "Maple Mono"
-font-variation = wght=300
-font-variation = wdth=100
-font-family-bold = "Maple Mono"
-font-variation-bold = wght=800
-
-# italics
-# https://github.com/subframe7536/maple-font
-font-family-italic = "Maple Mono"
-font-variation-italic = wght=200
-font-family-bold-italic = "Maple Mono"
-font-variation-bold-italic = wght=800
-font-feature = +liga
-cursor-style = block
-adjust-underline-position = 4
-bold-is-bright = true
-
-clipboard-read = allow
-clipboard-write = allow
-clipboard-trim-trailing-spaces = true
-
 background-opacity = 1
-background-blur-radius = 20
 
-title = " "
+font-size = 16
 
-# window-padding-x = 10
-# window-padding-y = 2
+font-family = CommitMono Nerd Font
 
 macos-titlebar-style = hidden
 
-window-vsync = true
+keybind = super+shift+l=new_split:right
+keybind = super+shift+j=new_split:down
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:down
+keybind = super+k=goto_split:up
+keybind = super+l=goto_split:right
 
-keybind = global:cmd+/=toggle_quick_terminal
 
-# theme = dark:/Users/zackery/.config/ghostty/themes/evergarden-spring-green.conf,light:/Users/zackery/.config/ghostty/themes/evergarden-summer-orange.conf
-theme = dark:"Everforest Dark - Hard",light:GruvboxLightHard
+theme = dark:/Users/zackery/.config/ghostty/themes/everforest-dark.conf,light:/Users/zackery/.config/ghostty/themes/everforest-light.conf

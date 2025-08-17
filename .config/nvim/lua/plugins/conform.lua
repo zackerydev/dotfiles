@@ -19,6 +19,7 @@ return {
       go = { 'goimports', 'gofmt' },
       html = { 'prettier' },
       htmlangular = { 'prettier' },
+      htmldjango = { 'prettier' },
       yaml = { 'prettier' },
       markdown = { 'prettier' },
       astro = { 'prettier' },

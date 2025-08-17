@@ -58,52 +58,13 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.harfbuzz_features = { "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "calt", "dlig" }
-
 config.color_scheme = scheme_for_appearance(get_appearance(), "everforest")
 
-config.enable_tab_bar = false
+config.enable_tab_bar = true
 
 config.window_decorations = "RESIZE"
 
 config.font_size = 14
-
--- config.window_background_opacity = 0
-
-config.window_padding = {
-	left = 20,
-	right = 20,
-	top = 10,
-	bottom = 10,
-}
-
-local color = "#1d2021"
-
-if get_appearance():find("Light") then
-	color = "#fffbef"
-end
-
-config.background = {
-	{
-		width = "100%",
-		height = "100%",
-		opacity = 1,
-		source = {
-			Color = color,
-		},
-	},
-	{
-		source = {
-			File = os.getenv("HOME") .. "/.config/wezterm/forest.jpg",
-		},
-		opacity = 0.1,
-		hsb = {
-			saturation = 1,
-			hue = 1,
-			brightness = 1,
-		},
-	},
-}
 
 config.ssh_domains = {
 	{
@@ -115,47 +76,58 @@ config.ssh_domains = {
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "Monaspace Neon",
-		harfbuzz_features = { "calt", "liga", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" },
+		family = "CommitMono Nerd Font",
 	},
 	{ family = "SpaceMono Nerd Font" },
 })
 
-config.font_rules = {
-	{ -- Italic
-		intensity = "Normal",
-		italic = true,
-		font = wezterm.font({
-			-- family="Monaspace Radon",  -- script style
-			family = "Monaspace Xenon", -- courier-like
-			style = "Italic",
-		}),
-	},
+-- Workspace Configuration
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 
-	{ -- Bold
-		intensity = "Bold",
-		italic = false,
-		font = wezterm.font({
-			family = "Monaspace Neon",
-			-- family = "Monaspace Krypton",
-			-- weight='ExtraBold',
-			weight = "Bold",
-		}),
-	},
+config.default_workspace = "~"
 
-	{ -- Bold Italic
-		intensity = "Bold",
-		italic = true,
-		font = wezterm.font({
-			family = "Monaspace Xenon",
-			style = "Italic",
-			weight = "Bold",
-		}),
-	},
+config.keys = {
+	-- Navigate panes with Command+HJKL
+	{ key = "h", mods = "CMD", action = wezterm.action.ActivatePaneDirection("Left") },
+	{ key = "j", mods = "CMD", action = wezterm.action.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "CMD", action = wezterm.action.ActivatePaneDirection("Up") },
+	{ key = "l", mods = "CMD", action = wezterm.action.ActivatePaneDirection("Right") },
+
+	-- Resize panes with Command+Shift+HJKL
+	{ key = "h", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
+	{ key = "j", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
+	{ key = "k", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
+	{ key = "l", mods = "CMD|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
+
+	-- Split panes
+	{ key = "o", mods = "CMD", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "p", mods = "CMD", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
+  { key = "s", mods = "CMD", action = workspace_switcher.switch_workspace() },
+  -- Palette
+  {
+    key = 'k',
+    mods = 'CMD',
+    action = wezterm.action.ActivateCommandPalette,
+  },
+  {
+    key = 's',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.PromptInputLine {
+      description = 'Enter name for new workspace',
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:perform_action(
+            wezterm.action.SwitchToWorkspace {
+              name = line,
+            },
+            pane
+          )
+        end
+      end),
+    },
+  },
 }
 
-config.term = "wezterm"
-
-config.max_fps = 160
+config.use_fancy_tab_bar = true
 
 return config

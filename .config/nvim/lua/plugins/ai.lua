@@ -1,17 +1,17 @@
 return {
-  {
-    'supermaven-inc/supermaven-nvim',
-    config = function()
-      require('supermaven-nvim').setup {
-        keymaps = {
-          accept_suggestion = '<C-o>',
-          next = '<C-j>',
-          prev = '<C-k>',
-          dismiss = '<C-]>',
-        },
-      }
-    end,
-  },
+  -- {
+  --   'supermaven-inc/supermaven-nvim',
+  --   config = function()
+  --     require('supermaven-nvim').setup {
+  --       keymaps = {
+  --         accept_suggestion = '<C-o>',
+  --         next = '<C-j>',
+  --         prev = '<C-k>',
+  --         dismiss = '<C-]>',
+  --       },
+  --     }
+  --   end,
+  -- },
   -- {
   --   'copilotlsp-nvim/copilot-lsp',
   --   init = function()

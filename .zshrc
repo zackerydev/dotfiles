@@ -16,6 +16,7 @@ alias helm2="/opt/homebrew/opt/helm@2/bin/helm"
 alias tf="terraform"
 
 export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 
 # if OSTYPE is Linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -52,7 +53,7 @@ alias p="pnpm"
 alias n="npm"
 alias gpf="git commit -a --amend && git push -f"
 alias dev="~/GitHub"
-alias z="~/GitHub/zackerydev"
+alias z="zoxide"
 alias notes="~/Documents/notes"
 alias cop="copilot"
 alias wt="git worktree"
@@ -116,3 +117,16 @@ hrbytes() {  # human readable bytes. numfmt is cool.
 
 . "$HOME/.cargo/env"
 
+# source various secret keys (if exists)
+# export ANTHROPIC_API_KEY=$(op read "op://Private/anthropic_api_key/credential")
+
+# Added by Windsurf
+export PATH="/Users/zackery/.codeium/windsurf/bin:$PATH"
+export PATH="/Users/zackery/.local/bin:$PATH"
+alias claude="/Users/zackery/.claude/local/claude"
+
+export PATH=/Users/zackery/.local/share/bob/nvim-bin:$PATH
+
+
+# opencode
+export PATH=/Users/zackery/.opencode/bin:$PATH
