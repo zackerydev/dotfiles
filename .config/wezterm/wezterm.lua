@@ -102,30 +102,30 @@ config.keys = {
 	-- Split panes
 	{ key = "o", mods = "CMD", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "p", mods = "CMD", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-  { key = "s", mods = "CMD", action = workspace_switcher.switch_workspace() },
-  -- Palette
-  {
-    key = 'k',
-    mods = 'CMD',
-    action = wezterm.action.ActivateCommandPalette,
-  },
-  {
-    key = 's',
-    mods = 'CMD|SHIFT',
-    action = wezterm.action.PromptInputLine {
-      description = 'Enter name for new workspace',
-      action = wezterm.action_callback(function(window, pane, line)
-        if line then
-          window:perform_action(
-            wezterm.action.SwitchToWorkspace {
-              name = line,
-            },
-            pane
-          )
-        end
-      end),
-    },
-  },
+	{ key = "s", mods = "CMD", action = workspace_switcher.switch_workspace() },
+	-- Palette
+	{
+		key = "k",
+		mods = "CMD|SHIFT",
+		action = wezterm.action.ActivateCommandPalette,
+	},
+	{
+		key = "s",
+		mods = "CMD|SHIFT",
+		action = wezterm.action.PromptInputLine({
+			description = "Enter name for new workspace",
+			action = wezterm.action_callback(function(window, pane, line)
+				if line then
+					window:perform_action(
+						wezterm.action.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
 }
 
 config.use_fancy_tab_bar = true

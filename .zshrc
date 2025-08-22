@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 
-plugins=(git aws asdf)
+plugins=(git aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -14,9 +14,6 @@ export GPG_TTY=$(tty)
 
 alias helm2="/opt/homebrew/opt/helm@2/bin/helm"
 alias tf="terraform"
-
-export ASDF_GOLANG_MOD_VERSION_ENABLED=true
-export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 
 # if OSTYPE is Linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -130,3 +127,4 @@ export PATH=/Users/zackery/.local/share/bob/nvim-bin:$PATH
 
 # opencode
 export PATH=/Users/zackery/.opencode/bin:$PATH
+eval "$(/Users/zackery/.local/bin/mise activate zsh)"

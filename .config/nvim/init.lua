@@ -31,6 +31,7 @@ vim.o.termguicolors = false
 vim.o.winborder = 'rounded'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+vim.o.termguicolors = true
 
 vim.g.mapleader = ' '
 
@@ -82,7 +83,7 @@ vim.pack.add {
   { src = 'https://github.com/saghen/blink.cmp', version = 'v1.6.0' },
   { src = 'https://github.com/folke/snacks.nvim' },
   { src = 'https://github.com/chrisgrieser/nvim-origami' },
-  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
 }
 
 -- Plugins
@@ -101,9 +102,71 @@ require('mini.basics').setup {
   },
 }
 require('mason-lspconfig').setup {
-  ensure_installed = { 'ts_ls', 'biome', 'lua_ls', 'gopls', 'helm-ls' },
+  ensure_installed = { 'ts_ls', 'biome', 'lua_ls', 'gopls', 'helm_ls' },
 }
-require('nvim-treesitter').setup {}
+
+require('nvim-treesitter.configs').setup {
+  ensure_installed = {
+    'astro',
+    'bash',
+    'c',
+    'comment',
+    'cpp',
+    'css',
+    'diff',
+    'git_rebase',
+    'gitcommit',
+    'gitignore',
+    'html',
+    'javascript',
+    'jsdoc',
+    'json',
+    'json',
+    'json5',
+    'jsonc',
+    'lua',
+    'markdown',
+    'markdown_inline',
+    'pug',
+    'python',
+    'regex',
+    'ruby',
+    'rust',
+    'tsx',
+    'typescript',
+    'vim',
+    'yaml',
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = 'gnn',
+      node_incremental = 'grn',
+      scope_incremental = 'grc',
+      node_decremental = 'grm',
+    },
+  },
+  highlight = { enable = true, use_languagetree = true, additional_vim_regex_highlighting = false },
+  indent = { enable = true },
+  rainbow = { enable = true, extended_mode = true, max_file_lines = 1000 },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- automatically jump forward to matching textobj
+      keymaps = {
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      },
+    },
+    swap = {
+      enable = false,
+      swap_next = { ['<leader>a'] = '@parameter.inner' },
+      swap_previous = { ['<leader>A'] = '@parameter.inner' },
+    },
+  },
+}
 require('lualine').setup {
   options = {
     theme = 'auto',
@@ -276,18 +339,11 @@ vim.diagnostic.config {
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'single',
-  syntax = 'markdown',
 })
+
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
   border = 'single',
-  syntax = 'markdown',
 })
--- Disable LSP Highlighting
-for _, group in ipairs(vim.fn.getcompletion('@lsp', 'highlight')) do
-  vim.api.nvim_set_hl(0, group, {})
-end
-
-vim.treesitter.language.register('markdown', { 'md', 'mdx' })
 
 vim.cmd 'colorscheme everforest'
 vim.cmd ':hi statusline guibg=NONE'
