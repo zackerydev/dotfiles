@@ -35,36 +35,6 @@ vim.o.termguicolors = true
 
 vim.g.mapleader = ' '
 
--- Keybinds
-vim.keymap.set('n', '<leader>o', ':Neotree toggle=true<CR>', { silent = true })
-vim.keymap.set('n', '<leader>b', ':Neotree toggle=true buffers<CR>', { silent = true })
-vim.keymap.set('n', '<laeader>g', ':Neotree toggle=true git_status<CR>', { silent = true })
-vim.keymap.set('n', '<Tab>', ':bnext<cr>', { silent = true }, { desc = 'Next Buffer' })
-vim.keymap.set('n', '<S-Tab>', ':bprevious<cr>', { silent = true }, { desc = 'Previous Buffer' })
-vim.keymap.set('n', '<leader>O', ':so %<cr>', { silent = true })
-vim.keymap.set('n', '<leader>qq', ':cnext<cr>', { desc = 'Next Quickfix' })
-vim.keymap.set('n', '<leader>qp', ':cprevoius<cr>', { desc = 'Previous Quickfix' })
-vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move Left' })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move Down' })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move Left' })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move Up' })
-vim.keymap.set('n', '<leader>c', ':e ~/.config/nvim/init.lua', { desc = 'Edit Neovim Configuration' })
-
--- Picker
-vim.keymap.set('n', '<leader>ff', ':Pick files<cr>', { desc = 'Find Files' })
-vim.keymap.set('n', '<leader>fw', ':Pick grep_live<cr>', { desc = 'Find Word' })
-vim.keymap.set('n', '<leader>ll', ':Pick buffers<cr>', { desc = 'Find Buffers' })
-vim.keymap.set('n', '<leader>fh', ':Pick help<cr>', { desc = 'Find Help' })
-vim.keymap.set('n', '<leader>fr', ':Pick resume<cr>', { desc = 'Resume Last Telescope' })
-
--- Trouble
-vim.keymap.set('n', '<leader>tt', ':Trouble diagnostics toggle<CR>', { desc = 'Trouble Diagnostics' })
-vim.keymap.set('n', '<leader>tb', ':Trouble diagnostics toggle filter.buf=0<CR>', { desc = 'Trouble Diagnostics' })
-vim.keymap.set('n', '<leader>tca', ':Trouble qflist toggle<CR>', { desc = 'Trouble Quickfix' })
-
--- LSP
-vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
-
 -- Packages
 vim.pack.add {
   { src = 'https://github.com/nvim-lua/plenary.nvim' },
@@ -84,10 +54,24 @@ vim.pack.add {
   { src = 'https://github.com/folke/snacks.nvim' },
   { src = 'https://github.com/chrisgrieser/nvim-origami' },
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
+  { src = 'https://github.com/catppuccin/nvim' },
+  { src = 'https://github.com/Bekaboo/dropbar.nvim' },
+  { src = 'https://github.com/zbirenbaum/copilot.lua' },
 }
 
 -- Plugins
+local colors = require 'colors'
 require('everforest').setup {}
+require('catppuccin').setup {
+  background = {
+    light = 'latte',
+    dark = 'mocha',
+    color_overrides = colors,
+    transparent_background = false,
+    show_end_of_buffer = false,
+    integration_default = false,
+  },
+}
 require('mason').setup {}
 require('trouble').setup {}
 require('origami').setup {}
@@ -179,7 +163,6 @@ require('lualine').setup {
     lualine_a = { 'mode' },
     lualine_b = { 'branch' },
     lualine_c = {
-      { 'filename', path = 1 },
       {
         'lsp_status',
         icon = '', -- f013
@@ -314,42 +297,71 @@ require('snacks').setup {
   notifier = {},
   statuscolumn = {},
   zen = {},
+  git = {},
+  gitbrowse = {},
+  lazygit = {},
 }
 
-vim.lsp.enable { 'lua_ls' }
+require('copilot').setup {
+  suggestion = {
+    auto_trigger = true,
+    keymap = {
+      accept = '<C-o>',
+    },
+  },
+}
 
-local function lspSymbol(name, icon)
-  local hl = 'DiagnosticSign' .. name
-  vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-end
-
-lspSymbol('Error', '󰅙')
-lspSymbol('Info', '󰋼')
-lspSymbol('Hint', '󰌵')
-lspSymbol('Warn', '')
+vim.fn.sign_define('DiagnosticSignError', { text = icons.diagnostics.Error, texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = icons.diagnostics.Warning, texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignInfo', { text = icons.diagnostics.Info, texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DiagnosticSignHint', { text = icons.diagnostics.Hint, texthl = 'DiagnosticSignHint' })
 
 vim.diagnostic.config {
-  virtual_text = {
-    prefix = '',
-  },
-  signs = true,
-  underline = false,
-  update_in_insert = false,
+  virtual_lines = true,
 }
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'single',
-})
+vim.lsp.config.taplo = {
+  filetypes = { 'toml' },
+  root_markers = { 'starship.toml', '.git' },
+}
 
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = 'single',
-})
+-- Keybinds
+vim.keymap.set('n', '<leader>o', ':Neotree toggle=true reveal=true<CR>', { silent = true })
+vim.keymap.set('n', '<leader>O', ':Neotree toggle=true reveal=true<CR>', { silent = true })
+vim.keymap.set('n', '<leader>b', ':Neotree toggle=true reveal=true buffers<CR>', { silent = true })
+vim.keymap.set('n', '<leader>g', ':Neotree toggle=true git_status<CR>', { silent = true })
+vim.keymap.set('n', '<leader>w', ':w<CR>', { silent = true })
+vim.keymap.set('n', '<Tab>', ':bnext<cr>', { silent = true, desc = 'Next Buffer' })
+vim.keymap.set('n', '<S-Tab>', ':bprevious<cr>', { silent = true, desc = 'Previous Buffer' })
+vim.keymap.set('n', '<leader>so', ':so %<cr>', { silent = true })
+vim.keymap.set('n', '<leader>qq', ':cnext<cr>', { desc = 'Next Quickfix' })
+vim.keymap.set('n', '<leader>qp', ':cprevoius<cr>', { desc = 'Previous Quickfix' })
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move Left' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move Down' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move Left' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move Up' })
+vim.keymap.set('n', '<leader>c', ':e ~/.config/nvim/init.lua', { desc = 'Edit Neovim Configuration' })
+
+-- Picker
+vim.keymap.set('n', '<leader>ff', ':Pick files<cr>', { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>fw', ':Pick grep_live<cr>', { desc = 'Find Word' })
+vim.keymap.set('n', '<leader>ll', ':Pick buffers<cr>', { desc = 'Find Buffers' })
+vim.keymap.set('n', '<leader>fb', ':Pick buffers<cr>', { desc = 'Find Buffers' })
+vim.keymap.set('n', '<leader>fh', ':Pick help<cr>', { desc = 'Find Help' })
+vim.keymap.set('n', '<leader>fr', ':Pick resume<cr>', { desc = 'Resume Last Telescope' })
+
+-- Trouble
+vim.keymap.set('n', '<leader>tt', ':Trouble diagnostics toggle<CR>', { desc = 'Trouble Diagnostics' })
+vim.keymap.set('n', '<leader>tb', ':Trouble diagnostics toggle filter.buf=0<CR>', { desc = 'Trouble Diagnostics' })
+vim.keymap.set('n', '<leader>tca', ':Trouble qflist toggle<CR>', { desc = 'Trouble Quickfix' })
+
+-- Snacks
+vim.keymap.set('n', '<leader>zz', ':lua Snacks.zen()', { desc = 'Zen Mode' })
+vim.keymap.set('n', '<leader>gl', ':lua Snacks.lazygit()', { desc = 'Open Lazygit' })
+vim.keymap.set('n', '<leader>gb', ':lua Snacks.git.blameline()', { desc = 'Open Git Blame' })
+vim.keymap.set('n', '<leader>go', ':lua Snacks.gitbrowse()', { desc = 'Open File on Remote' })
+
+-- LSP
+vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 
 vim.cmd 'colorscheme everforest'
-vim.cmd ':hi statusline guibg=NONE'
-
--- require 'config.settings'
--- require 'config.lazy'
--- require 'config.keymaps'
--- require 'config.lsp'
--- vim.cmd [[colorscheme everforest]]

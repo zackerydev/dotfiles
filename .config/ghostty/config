@@ -2,9 +2,9 @@ background-opacity = 1
 
 font-size = 16
 
-font-family = CommitMono Nerd Font
+font-family = Maple Mono
 
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 
 keybind = super+shift+l=new_split:right
 keybind = super+shift+j=new_split:down
@@ -12,6 +12,7 @@ keybind = super+h=goto_split:left
 keybind = super+j=goto_split:down
 keybind = super+k=goto_split:up
 keybind = super+l=goto_split:right
+keybind = super+z=toggle_split_zoom
 
 
 theme = dark:/Users/zackery/.config/ghostty/themes/everforest-dark.conf,light:/Users/zackery/.config/ghostty/themes/everforest-light.conf
