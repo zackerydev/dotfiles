@@ -340,7 +340,9 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move Left' })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move Down' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move Left' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move Up' })
-vim.keymap.set('n', '<leader>c', ':e ~/.config/nvim/init.lua', { desc = 'Edit Neovim Configuration' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move Up' })
+vim.keymap.set('n', '<leader>ca', ':lua vim.lsp.buf.code_action()', { desc = 'Move Up' })
+vim.keymap.set('n', '<leader>c', ':e ~/.config/nvim/init.lua<CR>', { desc = 'Edit Neovim Configuration' })
 
 -- Picker
 vim.keymap.set('n', '<leader>ff', ':Pick files<cr>', { desc = 'Find Files' })
